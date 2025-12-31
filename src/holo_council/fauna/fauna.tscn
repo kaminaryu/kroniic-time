@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://w414cqclwqce"]
+
+[ext_resource type="Texture2D" uid="uid://le80ber0nx7s" path="res://assets/holo_council/fauna.png" id="1_plnpr"]
+
+[node name="fauna" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_plnpr")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg3qloh1vuc3l"]
+
+[ext_resource type="Texture2D" uid="uid://dwqiijwdvg5jt" path="res://assets/holo_council/baelz.png" id="1_wc4yq"]
+
+[node name="baelz" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wc4yq")
