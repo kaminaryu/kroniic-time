@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bg2w4hry25vir" path="res://assets/holo_council/mumei.png" id="1_pfdh3"]
 
-[node name="mumei" type="Node2D"]
+[node name="Mumei" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pfdh3")

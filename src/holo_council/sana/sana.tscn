@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c05iotp58b37f" path="res://assets/holo_council/sana.png" id="1_sr4rp"]
 
-[node name="sana" type="Node2D"]
+[node name="Sana" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sr4rp")

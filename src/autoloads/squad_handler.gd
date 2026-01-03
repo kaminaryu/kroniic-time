@@ -35,4 +35,8 @@ func change_squad_member(member: String) -> void :
     selected_member = member
     member_node = squad_scenes[selected_member].instantiate()
     
+    # if not run by main / testing others
+    if player_node == null :
+        return
+        
     player_node.add_child(member_node)

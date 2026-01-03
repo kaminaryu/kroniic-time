@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://k1urft1ts702"]
+
+[ext_resource type="Script" uid="uid://cgpne5up80afl" path="res://sword.gd" id="1_2jeqv"]
+[ext_resource type="Texture2D" uid="uid://c8fbu46ymfad1" path="res://assets/effects/sword_slash/slash.png" id="2_3f0vx"]
+
+[sub_resource type="Animation" id="Animation_wfwyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashSprites:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashSprites:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageHitbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_e3kwv"]
+resource_name = "slashing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashSprites:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashSprites:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0.686275), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DamageHitbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, -16), Vector2(8, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_buo0o"]
+_data = {
+&"RESET": SubResource("Animation_wfwyl"),
+&"slashing": SubResource("Animation_e3kwv")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jeqv"]
+size = Vector2(16, 32)
+
+[node name="Sword" type="Area2D"]
+scale = Vector2(4, 2)
+script = ExtResource("1_2jeqv")
+
+[node name="SlashSprites" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.55, 1, 1)
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1, 0)
+rotation = 1.5708
+texture = ExtResource("2_3f0vx")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_buo0o")
+}
+
+[node name="DamageHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(8, -16)
+scale = Vector2(0.995705, 1.01645)
+shape = SubResource("RectangleShape2D_2jeqv")
