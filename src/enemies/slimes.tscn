@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cacujn1fymrst"]
+[gd_scene load_steps=9 format=3 uid="uid://cacujn1fymrst"]
 
 [ext_resource type="Texture2D" uid="uid://0u5b6u4w1rfu" path="res://assets/enemies/slime.png" id="1_bi7ni"]
 [ext_resource type="Script" uid="uid://ubf8ej16x56y" path="res://src/enemies/slimes.gd" id="1_wxtys"]
@@ -10,12 +10,69 @@ size = Vector2(32, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlhrs"]
 radius = 256.0
 
+[sub_resource type="Animation" id="Animation_i7y8y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hlhrs"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.37842, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0.0166664, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mtwo"]
+_data = {
+&"RESET": SubResource("Animation_i7y8y"),
+&"death": SubResource("Animation_hlhrs")
+}
+
 [node name="Slimes" type="CharacterBody2D"]
 script = ExtResource("1_wxtys")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_bi7ni")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bi7ni")
@@ -32,6 +89,16 @@ shape = SubResource("CircleShape2D_hlhrs")
 z_index = -1
 texture = ExtResource("3_hlhrs")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5mtwo")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bi7ni")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

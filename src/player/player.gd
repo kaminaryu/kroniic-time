@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 200
 
+var slime_scene = preload("res://src/enemies/slimes.tscn")
+
 func _process(delta: float) -> void :
     const RADIUS = 64 + 16
     
@@ -47,3 +49,11 @@ func _physics_process(delta: float) -> void:
     elif Input.is_action_just_pressed("change_squad_4") :
         $SpawnEffect.color = Color("f6ca9f")
         $SpawnEffect.emitting = true
+
+
+func _input(event: InputEvent) -> void :
+    if (event is InputEventMouseButton) :
+        if (event.pressed and event.button_index == MOUSE_BUTTON_MIDDLE) :
+            var slime = slime_scene.instantiate()
+            slime.position = Vector2(676, 67)
+            get_tree().root.add_child(slime)
