@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cacujn1fymrst"]
+[gd_scene load_steps=10 format=3 uid="uid://cacujn1fymrst"]
 
 [ext_resource type="Texture2D" uid="uid://0u5b6u4w1rfu" path="res://assets/enemies/slime.png" id="1_bi7ni"]
 [ext_resource type="Script" uid="uid://ubf8ej16x56y" path="res://src/enemies/slimes.gd" id="1_wxtys"]
@@ -65,10 +65,26 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0.0166664, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_5mtwo"]
+resource_name = "flashes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5mtwo"]
 _data = {
 &"RESET": SubResource("Animation_i7y8y"),
-&"death": SubResource("Animation_hlhrs")
+&"death": SubResource("Animation_hlhrs"),
+&"flashes": SubResource("Animation_5mtwo")
 }
 
 [node name="Slimes" type="CharacterBody2D"]
@@ -86,7 +102,8 @@ one_shot = true
 shape = SubResource("CircleShape2D_hlhrs")
 
 [node name="Target" type="Sprite2D" parent="."]
-z_index = -1
+modulate = Color(1, 1, 1, 0.282353)
+z_index = 3
 texture = ExtResource("3_hlhrs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

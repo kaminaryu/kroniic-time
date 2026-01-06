@@ -1,22 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://brhygsm2kf264"]
+[gd_scene load_steps=8 format=3 uid="uid://brhygsm2kf264"]
 
 [ext_resource type="Script" uid="uid://cbmr3xp11mttl" path="res://src/player/player.gd" id="1_rxibo"]
-[ext_resource type="Texture2D" uid="uid://bg2w4hry25vir" path="res://assets/holo_council/mumei.png" id="2_mf2ua"]
 [ext_resource type="Texture2D" uid="uid://bsyo8u48khuib" path="res://assets/temporary/hand.png" id="3_244u8"]
 [ext_resource type="PackedScene" uid="uid://k1urft1ts702" path="res://src/weapons/sword.tscn" id="4_5f2sf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_244u8"]
-size = Vector2(32, 64)
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_244u8"]
+resource_name = "flashes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5f2sf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jiejy"]
+_data = {
+&"RESET": SubResource("Animation_5f2sf"),
+&"flashes": SubResource("Animation_244u8")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rxibo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_mf2ua")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_244u8")
 
 [node name="SpawnEffect" type="CPUParticles2D" parent="."]
@@ -43,3 +73,18 @@ scale = Vector2(0.0292969, 0.0292969)
 texture = ExtResource("3_244u8")
 
 [node name="Sword" parent="Hand" instance=ExtResource("4_5f2sf")]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_244u8")
+
+[node name="MemberController" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MemberController"]
+libraries = {
+&"": SubResource("AnimationLibrary_jiejy")
+}
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="animation_finished" from="MemberController/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

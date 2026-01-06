@@ -1,11 +1,18 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var speed := 200
+const knockback_strength := 64
+var knockback_lerp := 0.2
+
+var is_hit := false
+var knockback_pos: Vector2
+var iframe := false
+
 
 var slime_scene = preload("res://src/enemies/slimes.tscn")
 
 func _process(delta: float) -> void :
-    const RADIUS = 64 + 16
+    const RADIUS = 16 + 16
     
     var hand_node := $Hand
     var mouse_pos := get_global_mouse_position()
@@ -15,10 +22,16 @@ func _process(delta: float) -> void :
 
     hand_node.rotation = rot_pointing_mouse
     hand_node.position = Vector2(RADIUS, 0).rotated(rot_pointing_mouse)
+    
+    if (is_hit) :
+        knocking_back()
 
 
 
 func _physics_process(delta: float) -> void:
+    # disable control when hit
+    if (is_hit) :
+        return
     var move_dir = Vector2.ZERO
     
     if Input.is_action_pressed("move_up") :
@@ -50,10 +63,48 @@ func _physics_process(delta: float) -> void:
         $SpawnEffect.color = Color("f6ca9f")
         $SpawnEffect.emitting = true
 
-
+#region DEBUG
 func _input(event: InputEvent) -> void :
     if (event is InputEventMouseButton) :
         if (event.pressed and event.button_index == MOUSE_BUTTON_MIDDLE) :
             var slime = slime_scene.instantiate()
             slime.position = Vector2(676, 67)
             get_tree().root.add_child(slime)
+#endregion
+
+#region DAMAGE
+func damage_player(hostile_entity: Node) -> void :
+    # iframes
+    if (is_hit) :
+        return
+        
+    # knockback
+    is_hit = true
+    iframe = true
+    
+    var opposite_direction := atan2(position.y - hostile_entity.position.y, position.x - hostile_entity.position.x)
+    knockback_pos = position + Vector2.RIGHT.rotated(opposite_direction) * knockback_strength
+    
+    $MemberController/AnimationPlayer.play("flashes")
+    
+    
+func knocking_back() :
+    position = position.lerp(knockback_pos, knockback_lerp)
+    
+    if (position.distance_to(knockback_pos) < 4) :
+        is_hit = false
+    
+#endregion
+
+
+#region SIGNAL
+func _on_hitbox_body_entered(body: Node2D) -> void:
+    if (body.is_in_group("Slimes")) :
+        damage_player(body)        
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+    if (anim_name == "flashes") :
+        iframe = false
+    
+#endregion

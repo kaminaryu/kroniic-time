@@ -27,7 +27,7 @@ func _process(delta: float) -> void :
         
     
 func change_squad_member(member: String) -> void :
-    var player_node := get_tree().root.get_node("Main/Player")
+    var member_controller := get_tree().root.get_node("Main/Player/MemberController")
     
     if member_node :
         member_node.queue_free()
@@ -36,7 +36,7 @@ func change_squad_member(member: String) -> void :
     member_node = squad_scenes[selected_member].instantiate()
     
     # if not run by main / testing others
-    if player_node == null :
+    if member_controller == null :
         return
         
-    player_node.add_child(member_node)
+    member_controller.add_child(member_node)

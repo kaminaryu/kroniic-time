@@ -7,6 +7,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_3eyiu")]
 position = Vector2(398, 243)
+speed = 200
 
 [node name="Slimes" parent="." instance=ExtResource("2_vab7u")]
 position = Vector2(237, 129)
