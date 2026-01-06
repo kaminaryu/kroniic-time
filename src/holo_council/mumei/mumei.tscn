@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0h53jr3nrmku"]
+[gd_scene load_steps=5 format=3 uid="uid://d0h53jr3nrmku"]
 
+[ext_resource type="Script" uid="uid://imtae0ijx46k" path="res://src/holo_council/mumei/mumei.gd" id="1_0e7b3"]
 [ext_resource type="Texture2D" uid="uid://bg2w4hry25vir" path="res://assets/holo_council/mumei.png" id="1_pfdh3"]
+[ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_lhi1e"]
+[ext_resource type="PackedScene" uid="uid://k1urft1ts702" path="res://src/weapons/sword.tscn" id="4_b44hv"]
 
 [node name="Mumei" type="Node2D"]
+script = ExtResource("1_0e7b3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pfdh3")
+
+[node name="SkillsHandler" parent="." instance=ExtResource("3_lhi1e")]
+basic_attack = ExtResource("4_b44hv")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

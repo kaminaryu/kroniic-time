@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://w414cqclwqce"]
+[gd_scene load_steps=5 format=3 uid="uid://w414cqclwqce"]
 
+[ext_resource type="Script" uid="uid://big8ddy6ucrrd" path="res://src/holo_council/fauna/fauna.gd" id="1_c7yp3"]
 [ext_resource type="Texture2D" uid="uid://le80ber0nx7s" path="res://assets/holo_council/fauna.png" id="1_plnpr"]
+[ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_v3s1x"]
+[ext_resource type="PackedScene" uid="uid://k1urft1ts702" path="res://src/weapons/sword.tscn" id="4_255og"]
 
 [node name="Fauna" type="Node2D"]
+script = ExtResource("1_c7yp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_plnpr")
+
+[node name="SkillsHandler" parent="." instance=ExtResource("3_v3s1x")]
+basic_attack = ExtResource("4_255og")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

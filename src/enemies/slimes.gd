@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var health: int = 3
 const KNOCKBACK_STRENGTH: float = 64
 const JUMP_DELAY: float = 0.5
-var knockback_lerp := 0.2
+var knockback_lerp := 0.1
 
 var is_hit := false
 var knockback_pos: Vector2

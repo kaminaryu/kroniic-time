@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed := 200
 const knockback_strength := 64
-var knockback_lerp := 0.2
+var knockback_lerp := 0.1
 
 var is_hit := false
 var knockback_pos: Vector2
@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
     # disable control when hit
     if (is_hit) :
         return
+        
     var move_dir = Vector2.ZERO
     
     if Input.is_action_pressed("move_up") :
