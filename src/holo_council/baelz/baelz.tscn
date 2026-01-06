@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg3qloh1vuc3l"]
+[gd_scene load_steps=5 format=3 uid="uid://bg3qloh1vuc3l"]
 
 [ext_resource type="Script" uid="uid://14n0tigamwp3" path="res://src/holo_council/baelz/baelz.gd" id="1_2op5n"]
 [ext_resource type="Texture2D" uid="uid://dwqiijwdvg5jt" path="res://assets/holo_council/baelz.png" id="1_wc4yq"]
 [ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_dn7an"]
+[ext_resource type="PackedScene" uid="uid://b046binjx35ip" path="res://src/weapons/gun.tscn" id="4_wfw4v"]
 
 [node name="Baelz" type="Node2D"]
 script = ExtResource("1_2op5n")
@@ -11,6 +12,7 @@ script = ExtResource("1_2op5n")
 texture = ExtResource("1_wc4yq")
 
 [node name="SkillsHandler" parent="." instance=ExtResource("3_dn7an")]
+basic_attack = ExtResource("4_wfw4v")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

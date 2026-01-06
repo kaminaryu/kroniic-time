@@ -23,5 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
     if (body.is_in_group("Slimes")) :
         if (body.on_air) :
             return
-        body.hit(get_parent().get_parent()) # grandparent is the player
+            
+        var source_of_dmg = get_parent().get_parent()
+        body.hit(source_of_dmg) # player is the source of damage 
         

@@ -1,0 +1,18 @@
+extends Area2D
+
+@onready var speed := 670
+var direction: Vector2
+var source_of_fire: Node
+
+func _physics_process(delta: float) -> void :
+    position += direction * delta * speed
+    
+
+
+func _on_body_entered(body: Node2D) -> void:
+    if (body.is_in_group("Slimes")) :
+        if (body.on_air) :
+            return
+        
+        body.hit(source_of_fire)
+        queue_free()        

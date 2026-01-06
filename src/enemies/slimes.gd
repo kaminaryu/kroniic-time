@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var health: int = 3
 const KNOCKBACK_STRENGTH: float = 64
 const JUMP_DELAY: float = 0.5
+const JUMP_LERP := 0.04
 var knockback_lerp := 0.1
 
 var is_hit := false
@@ -75,7 +76,6 @@ func start_jump() -> void :
     start_distance_to_mid_point = global_position.distance_to(start_end_mid_point)
     
     
-    
 func stop_jump() -> void :
     is_jumping = false
     on_air = false
@@ -87,7 +87,7 @@ func stop_jump() -> void :
     
     
 func jump() -> void :
-    global_position = global_position.lerp(target_position, 0.05)
+    global_position = global_position.lerp(target_position, JUMP_LERP)
     
     ## calculate the "height"
     var current_dist = global_position.distance_to(start_end_mid_point)
@@ -98,7 +98,7 @@ func jump() -> void :
     scale = Vector2(size_scalar, size_scalar)
     
     if global_position.distance_to(target_position) < 8 :
-        global_position = target_position
+        #global_position = target_position
         stop_jump()
 #endregion
      
@@ -108,20 +108,21 @@ func hit(hitter_node: Node) -> void :
     if (is_hit) :
         return
         
+    $Timer.stop()
+        
     is_hit = true
     health -= 1
     
     if (health < 1) :
         $AnimationPlayer.play("death")
-        $Timer.stop()
         return
         
-    var opposite_direction := atan2(global_position.y - hitter_node.position.y, global_position.x - hitter_node.position.x)
+    var opposite_direction := atan2(global_position.y - hitter_node.global_position.y, global_position.x - hitter_node.global_position.x)
     var variable_knockback := KNOCKBACK_STRENGTH + randf_range(-8, 8)
     knockback_pos = position + variable_knockback * Vector2.RIGHT.rotated(opposite_direction)
     
     $AnimationPlayer.play("flashes")
-    $Timer.start() # resets the timer
+
     
 # knock back animation
 func knocking_back() :
@@ -152,5 +153,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
         queue_free()
     if (anim_name == "flashes") :
         is_hit = false
+        $Timer.wait_time = 0.5
+        $Timer.start() # resets the timer
             
 #endregion
