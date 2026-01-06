@@ -29,7 +29,11 @@ func _process(delta: float) -> void :
 func change_squad_member(member: String) -> void :
     var member_controller := get_tree().root.get_node("Main/Player/MemberController")
     
-    if member_node :
+    # no more selecting already selected members
+    if (member == selected_member) :
+        return
+        
+    if (member_node) :
         member_node.queue_free()
         
     selected_member = member
