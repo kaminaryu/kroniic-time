@@ -115,6 +115,7 @@ func hit(hitter_node: Node) -> void :
     
     if (health < 1) :
         $AnimationPlayer.play("death")
+        Kronii.time_left += 5
         return
         
     var opposite_direction := atan2(global_position.y - hitter_node.global_position.y, global_position.x - hitter_node.global_position.x)
@@ -125,7 +126,7 @@ func hit(hitter_node: Node) -> void :
 
     
 # knock back animation
-func knocking_back() :
+func knocking_back() -> void :
     position = position.lerp(knockback_pos, knockback_lerp)
     
     #if (position.distance_to(knockback_pos) < 4) :

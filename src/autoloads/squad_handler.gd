@@ -7,11 +7,11 @@ var squad_scenes: Dictionary[String,  PackedScene] = {
     "Mumei": preload("res://src/holo_council/mumei/mumei.tscn"),
     "Sana" : preload("res://src/holo_council/sana/sana.tscn")
 }
-var selected_member := "Mumei";
+var selected_member: String
 var member_node: Node
 
 func _ready() -> void :
-    change_squad_member(selected_member)
+    change_squad_member("Mumei")
     
     
 func _process(delta: float) -> void :

@@ -86,6 +86,9 @@ func damage_player(hostile_entity: Node) -> void :
     var opposite_direction := atan2(position.y - hostile_entity.position.y, position.x - hostile_entity.position.x)
     knockback_pos = position + Vector2.RIGHT.rotated(opposite_direction) * knockback_strength
     
+    # decrease the time
+    Kronii.time_left -= 10
+    
     $MemberController/AnimationPlayer.play("flashes")
     
     
