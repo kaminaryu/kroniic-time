@@ -9,7 +9,7 @@ func _ready() -> void :
     timer = Timer.new()
     add_child(timer)
     
-    timer.wait_time = 0.1
+    timer.wait_time = 1
     timer.timeout.connect(on_timer_timeout)
     timer.start()
 

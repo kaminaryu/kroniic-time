@@ -25,5 +25,5 @@ func _on_body_entered(body: Node2D) -> void:
             return
             
         var source_of_dmg = get_parent().get_parent()
-        body.hit(source_of_dmg) # player is the source of damage 
+        body.take_damage(source_of_dmg) # player is the source of damage 
         

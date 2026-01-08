@@ -103,7 +103,7 @@ func jump() -> void :
 #endregion
      
 #region ON GETTING HIT
-func hit(hitter_node: Node) -> void :
+func take_damage(hitter_node: Node) -> void :
     # iframes
     if (is_hit) :
         return

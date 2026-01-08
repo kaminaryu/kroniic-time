@@ -14,5 +14,5 @@ func _on_body_entered(body: Node2D) -> void:
         if (body.on_air) :
             return
         
-        body.hit(source_of_fire)
+        body.take_damage(source_of_fire)
         queue_free()        

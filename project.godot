@@ -19,11 +19,13 @@ config/icon="res://icon.svg"
 
 SquadHandler="*res://src/autoloads/squad_handler.gd"
 Kronii="*res://src/autoloads/kronii.gd"
+EnemySpawner="*res://src/autoloads/enemy_spawner.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 
 [editor_plugins]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0fmhy5g5wq2f"]
+
+[ext_resource type="Texture2D" uid="uid://eflhwj14y7bw" path="res://assets/enemies/darty.png" id="1_l2yna"]
+[ext_resource type="Script" uid="uid://3qujni5544bd" path="res://src/enemies/darty.gd" id="1_xsgw8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsgw8"]
+size = Vector2(64, 24)
+
+[node name="Darty" type="Area2D"]
+script = ExtResource("1_xsgw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xsgw8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_l2yna")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

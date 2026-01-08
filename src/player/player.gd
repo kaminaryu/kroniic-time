@@ -1,15 +1,12 @@
 extends CharacterBody2D
 
 @export var speed := 200
-const knockback_strength := 64
 var knockback_lerp := 0.1
 
 var is_hit := false
 var knockback_pos: Vector2
 var iframe := false
 
-
-var slime_scene = preload("res://src/enemies/slimes.tscn")
 
 func _process(delta: float) -> void :
     const RADIUS = 16 + 16
@@ -64,17 +61,9 @@ func _physics_process(delta: float) -> void:
         $SpawnEffect.color = Color("f6ca9f")
         $SpawnEffect.emitting = true
 
-#region DEBUG
-func _input(event: InputEvent) -> void :
-    if (event is InputEventMouseButton) :
-        if (event.pressed and event.button_index == MOUSE_BUTTON_MIDDLE) :
-            var slime = slime_scene.instantiate()
-            slime.position = Vector2(676, 67)
-            get_tree().root.add_child(slime)
-#endregion
 
 #region DAMAGE
-func damage_player(hostile_entity: Node) -> void :
+func take_damage(hostile_entity: Node, knockback_strength: int, damage: int) -> void :
     # iframes
     if (is_hit) :
         return
@@ -87,7 +76,7 @@ func damage_player(hostile_entity: Node) -> void :
     knockback_pos = position + Vector2.RIGHT.rotated(opposite_direction) * knockback_strength
     
     # decrease the time
-    Kronii.time_left -= 10
+    Kronii.time_left -= damage
     
     $MemberController/AnimationPlayer.play("flashes")
     
@@ -104,7 +93,7 @@ func knocking_back() :
 #region SIGNAL
 func _on_hitbox_body_entered(body: Node2D) -> void:
     if (body.is_in_group("Slimes")) :
-        damage_player(body)        
+        take_damage(body, 64, 10)        
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
