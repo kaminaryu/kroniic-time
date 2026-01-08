@@ -14,9 +14,9 @@ func _on_body_entered(body: Node2D) -> void:
         if (body.on_air) :
             return
         
-        body.take_damage(source_of_fire)
+        body.take_damage(source_of_fire, 32, 1)
         
     elif (body.is_in_group("Giants")) :
-        body.take_damage(source_of_fire)
+        body.take_damage(source_of_fire, 32, 1)
         
     queue_free()
