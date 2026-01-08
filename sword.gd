@@ -1,8 +1,15 @@
 extends Area2D
 
+var damage: int
+var knockback: int
+@onready var player: Node = get_parent().get_parent()
+
 func _ready() -> void :
     $SlashSprites.modulate.a = 0
     $DamageHitbox.disabled = true
+    
+    damage = player.damage * player.damage_modifier
+    knockback = player.knockback
     
     
 func _input(event: InputEvent) -> void :
@@ -24,9 +31,9 @@ func _on_body_entered(body: Node2D) -> void:
         if (body.on_air) :
             return
             
-        var source_of_dmg = get_parent().get_parent()
-        body.take_damage(source_of_dmg) # player is the source of damage 
+        var source_of_dmg = player
+        body.take_damage(source_of_dmg, knockback, damage) # player is the source of damage 
         
     elif (body.is_in_group("Giants")) :
-        var source_of_dmg = get_parent().get_parent()
-        body.take_damage(source_of_dmg)
+        var source_of_dmg = player
+        body.take_damage(source_of_dmg, knockback, damage)

@@ -103,7 +103,7 @@ func jump() -> void :
 #endregion
      
 #region ON GETTING HIT
-func take_damage(hitter_node: Node) -> void :
+func take_damage(hitter_node: Node, knockback: int, damage: int) -> void :
     # iframes
     if (is_hit) :
         return
@@ -111,7 +111,7 @@ func take_damage(hitter_node: Node) -> void :
     $Timer.stop()
         
     is_hit = true
-    health -= 1
+    health -= damage
     
     if (health < 1) :
         $AnimationPlayer.play("death")
@@ -119,7 +119,7 @@ func take_damage(hitter_node: Node) -> void :
         return
         
     var opposite_direction := atan2(global_position.y - hitter_node.global_position.y, global_position.x - hitter_node.global_position.x)
-    var variable_knockback := KNOCKBACK_STRENGTH + randf_range(-8, 8)
+    var variable_knockback := knockback + randf_range(-8, 8)
     knockback_pos = position + variable_knockback * Vector2.RIGHT.rotated(opposite_direction)
     
     $AnimationPlayer.play("flashes")

@@ -1,0 +1,14 @@
+{
+    "SpeedBoots": {
+        "Name": "Speed Boots",
+        "Description": "Makes u go nyoom",
+        "Attribute": "Speed",
+        "Modifier": 1.5
+    },
+    "Sharpness": {
+        "Name": "Sharp Sword",
+        "Description": "Make ur enemies bleed",
+        "Attribute": "Damage",
+        "Modifier": 1.5
+    }
+}

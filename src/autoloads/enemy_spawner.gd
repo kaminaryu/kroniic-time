@@ -13,9 +13,9 @@ func _input(event: InputEvent) -> void :
             var option := randi_range(0, 1)
             var enemy: Node
             
-            if (option == 1) :
+            if (option == 0) :
                 enemy = slime_scene.instantiate()
-            elif (option == 2) :
+            elif (option == 1) :
                 enemy = darty_scene.instantiate()
                 
             enemy.position = Vector2(676, 67)

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var health = 10
 
-const KNOCKBACK_STRENGTH: float = 64
+
 var knockback_lerp := 0.1
 
 var is_hit := false
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void :
 
 
 #region ON GETTING HIT
-func take_damage(hitter_node: Node) -> void :
+func take_damage(hitter_node: Node, knockback: int, damage: int) -> void :
     # iframes
     if (is_hit) :
         return
@@ -54,15 +54,15 @@ func take_damage(hitter_node: Node) -> void :
     $Timer.stop()
         
     is_hit = true
-    health -= 1
+    health -= damage
     
     if (health < 1) :
         $AnimationPlayer.play("death")
-        Kronii.time_left += 5
+        Kronii.time_left += 10
         return
         
     var opposite_direction := atan2(global_position.y - hitter_node.global_position.y, global_position.x - hitter_node.global_position.x)
-    var variable_knockback := KNOCKBACK_STRENGTH + randf_range(-8, 8)
+    var variable_knockback := knockback + randf_range(-8, 8)
     knockback_pos = position + variable_knockback * Vector2.RIGHT.rotated(opposite_direction)
     
     $AnimationPlayer.play("flashes")
