@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxxmqsv7v5p5h"]
+[gd_scene load_steps=6 format=3 uid="uid://cxxmqsv7v5p5h"]
 
 [ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="1_gh0ne"]
 [ext_resource type="PackedScene" uid="uid://cacujn1fymrst" path="res://src/enemies/slimes.tscn" id="2_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://d0gaaul551s4i" path="res://src/UI/gameplay.tscn" id="3_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://b0fmhy5g5wq2f" path="res://src/enemies/darty.tscn" id="4_3cfgd"]
+[ext_resource type="PackedScene" uid="uid://d01dmecof34tt" path="res://src/enemies/giant.tscn" id="5_fyndt"]
 
 [node name="Main" type="Node2D"]
 
@@ -16,4 +17,7 @@ position = Vector2(237, 129)
 [node name="Gameplay" parent="." instance=ExtResource("3_5q4o7")]
 
 [node name="Darty" parent="." instance=ExtResource("4_3cfgd")]
-position = Vector2(1164, 431)
+position = Vector2(1609, 545)
+
+[node name="Giant" parent="." instance=ExtResource("5_fyndt")]
+position = Vector2(969, 144)

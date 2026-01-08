@@ -27,3 +27,6 @@ func _on_body_entered(body: Node2D) -> void:
         var source_of_dmg = get_parent().get_parent()
         body.take_damage(source_of_dmg) # player is the source of damage 
         
+    elif (body.is_in_group("Giants")) :
+        var source_of_dmg = get_parent().get_parent()
+        body.take_damage(source_of_dmg)
