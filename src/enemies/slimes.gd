@@ -80,6 +80,8 @@ func stop_jump() -> void :
     is_jumping = false
     on_air = false
     
+    scale = Vector2.ONE
+    
     $Hitbox.disabled = false
         
     $Timer.wait_time = randf_range(JUMP_DELAY, JUMP_DELAY + 1.5)
@@ -111,6 +113,8 @@ func take_damage(hitter_node: Node, knockback: int, damage: float) -> void :
     #get_tree().quit()
         
     $Timer.stop()
+    scale = Vector2.ONE
+    
         
     is_hit = true
     health -= damage
