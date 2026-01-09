@@ -103,10 +103,12 @@ func jump() -> void :
 #endregion
      
 #region ON GETTING HIT
-func take_damage(hitter_node: Node, knockback: int, damage: int) -> void :
+func take_damage(hitter_node: Node, knockback: int, damage: float) -> void :
     # iframes
     if (is_hit) :
         return
+        
+    #get_tree().quit()
         
     $Timer.stop()
         
@@ -132,7 +134,7 @@ func knocking_back() -> void :
     #if (position.distance_to(knockback_pos) < 4) :
         #is_hit = false
 #endregion   
-        
+
 #region SIGNALS  
 func _on_timer_timeout() -> void:
     start_jump()

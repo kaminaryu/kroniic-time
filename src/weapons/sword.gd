@@ -1,6 +1,7 @@
 extends Area2D
 
-var damage: int
+@export var damage: float = 1.0
+
 var knockback: int
 @onready var player: Node = get_parent().get_parent()
 
@@ -8,7 +9,7 @@ func _ready() -> void :
     $SlashSprites.modulate.a = 0
     $DamageHitbox.disabled = true
     
-    damage = player.damage * player.damage_modifier
+    damage *= player.damage_modifier
     knockback = player.knockback
     
     

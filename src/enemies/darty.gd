@@ -12,7 +12,7 @@ var is_dashing: bool = false
 var cooling_down: bool = false
 var player: Node
 
-@export var health := 3
+@export var health: float = 3.0
 
 
 func _ready() -> void :
@@ -79,7 +79,7 @@ func stop_dashing() -> void :
     $Timer.wait_time = randf_range(COOLDOWN, COOLDOWN + 2) # ts is the offset
     $Timer.start()
         
-func take_damage(_source: Node, _knockback: int, damage: int) -> void :
+func take_damage(_source: Node, _knockback: int, damage: float) -> void :
     health -= damage;
     
     

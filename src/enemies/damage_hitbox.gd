@@ -10,8 +10,8 @@ func _ready() -> void :
 
 func _on_area_entered(area: Area2D) -> void:
     var knockback := 64
-    var damage := 1
-    
+    var damage: float = area.damage
+        
     get_parent().take_damage(area, knockback, damage);
     
     print(get_parent().name + " is detecting " + area.name)

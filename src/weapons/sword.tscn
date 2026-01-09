@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://k1urft1ts702"]
 
-[ext_resource type="Script" uid="uid://cgpne5up80afl" path="res://sword.gd" id="1_2jeqv"]
+[ext_resource type="Script" uid="uid://cgpne5up80afl" path="res://src/weapons/sword.gd" id="1_2jeqv"]
 [ext_resource type="Texture2D" uid="uid://c8fbu46ymfad1" path="res://assets/effects/sword_slash/slash.png" id="2_3f0vx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jeqv"]
-size = Vector2(16, 32)
+size = Vector2(9.00431, 32)
 
 [sub_resource type="Animation" id="Animation_2jeqv"]
 length = 0.001
@@ -79,10 +79,10 @@ tracks/2/path = NodePath("DamageHitbox:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.175),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.175, 0.17507),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(8, -16), Vector2(8, 16)]
+"values": [Vector2(8, -16), Vector2(8, 16), Vector2(4.75, 16.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4nn5g"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0gaaul551s4i"]
 
 [ext_resource type="Texture2D" uid="uid://dwqiijwdvg5jt" path="res://assets/holo_council/baelz.png" id="1_4rub3"]
-[ext_resource type="Script" uid="uid://cemgyy47es06q" path="res://src/UI/gameplay.gd" id="1_qgwfa"]
+[ext_resource type="Script" uid="uid://cemgyy47es06q" path="res://src/UI/kronii_bar.gd" id="1_qgwfa"]
 [ext_resource type="Texture2D" uid="uid://le80ber0nx7s" path="res://assets/holo_council/fauna.png" id="2_qgwfa"]
 
-[node name="Gameplay" type="Control"]
+[node name="Kronii Bar" type="Control"]
 z_index = 999
 layout_mode = 3
 anchors_preset = 15

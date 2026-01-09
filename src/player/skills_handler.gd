@@ -1,9 +1,5 @@
 extends Node2D
 
-# i have an idea :
-#   a singleton that handles weapon and shit
-#   but ig thats for if we want a member to have multiple attacks, idk
-
 # member specific weaponary
 @export var basic_attack: PackedScene
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://14n0tigamwp3" path="res://src/holo_council/baelz/baelz.gd" id="1_2op5n"]
 [ext_resource type="Texture2D" uid="uid://dwqiijwdvg5jt" path="res://assets/holo_council/baelz.png" id="1_wc4yq"]
 [ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_dn7an"]
-[ext_resource type="PackedScene" uid="uid://b046binjx35ip" path="res://src/weapons/gun.tscn" id="4_wfw4v"]
+[ext_resource type="PackedScene" uid="uid://1ou4k7ohstj4" path="res://src/skills/Baelz/dealer's_shuffle.tscn" id="4_wfw4v"]
 
 [node name="Baelz" type="Node2D"]
 script = ExtResource("1_2op5n")

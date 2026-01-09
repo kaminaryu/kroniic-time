@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://ygyijbb8he8t"]
+
+[ext_resource type="Script" uid="uid://c8wigc5jmsipy" path="res://src/skills/Baelz/card.gd" id="1_w4ja2"]
+[ext_resource type="Texture2D" uid="uid://w1fg2rqj7a5p" path="res://assets/Skills/Baelz/Card.png" id="2_w4ja2"]
+[ext_resource type="Texture2D" uid="uid://bakmla2oebfab" path="res://assets/Skills/Baelz/BlackCard.png" id="3_i82md"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gq0sr"]
+size = Vector2(8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nakan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w4ja2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i82md")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_i82md"]
+resource_name = "rotating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_nakan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nakan"]
+_data = {
+&"RESET": SubResource("Animation_nakan"),
+&"rotating": SubResource("Animation_i82md")
+}
+
+[node name="Card" type="Area2D"]
+collision_layer = 129
+collision_mask = 131
+script = ExtResource("1_w4ja2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gq0sr")
+
+[node name="CardFaces" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nakan")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CardFaces")
+libraries = {
+&"": SubResource("AnimationLibrary_nakan")
+}
+autoplay = "rotating"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

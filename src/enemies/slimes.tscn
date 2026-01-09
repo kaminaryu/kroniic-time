@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="4_i7y8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi7ni"]
-size = Vector2(32, 32)
+size = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlhrs"]
 radius = 256.0
@@ -89,19 +89,17 @@ _data = {
 }
 
 [node name="Slimes" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_wxtys")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_bi7ni")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="AttackRange" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_hlhrs")
@@ -121,6 +119,7 @@ texture_filter = 1
 texture = ExtResource("1_bi7ni")
 
 [node name="DamageHitbox" parent="." instance=ExtResource("4_i7y8y")]
+hitbox = Vector2(32, 32)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

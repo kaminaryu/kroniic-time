@@ -5,7 +5,6 @@ extends CharacterBody2D
 var knockback_lerp := 0.1
 
 var knockback: int = 64
-var damage: int = 1
 
 
 var speed_modifier: float = 1.0

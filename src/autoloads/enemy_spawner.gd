@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void :
             var option := randi_range(0, 2)
             var enemy: Node
             
-            if (option == 0) :
+            if (option == 0 or 1) :
                 enemy = slime_scene.instantiate()
             elif (option == 1) :
                 enemy = darty_scene.instantiate()
