@@ -93,6 +93,8 @@ _data = {
 
 [node name="Sword" type="Area2D"]
 scale = Vector2(4, 2)
+collision_layer = 128
+collision_mask = 0
 script = ExtResource("1_2jeqv")
 
 [node name="SlashSprites" type="Sprite2D" parent="."]

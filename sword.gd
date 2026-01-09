@@ -26,14 +26,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-    print(body.name)
-    if (body.is_in_group("Slimes")) :
-        if (body.on_air) :
-            return
-            
-        var source_of_dmg = player
-        body.take_damage(source_of_dmg, knockback, damage) # player is the source of damage 
-        
-    elif (body.is_in_group("Giants")) :
-        var source_of_dmg = player
-        body.take_damage(source_of_dmg, knockback, damage)
+    print("We are damaging: ", body.name)
+    var source_of_dmg = player
+    

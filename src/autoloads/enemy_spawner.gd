@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var slime_scene = preload("res://src/enemies/slimes.tscn")
 var darty_scene = preload("res://src/enemies/darty.tscn")
@@ -21,6 +21,5 @@ func _input(event: InputEvent) -> void :
             elif (option == 2) :
                 enemy = giant_scene.instantiate()
                 
-            enemy.position = Vector2(676, 67)
+            enemy.position = get_global_mouse_position()
             get_tree().root.add_child(enemy)
-                

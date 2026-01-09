@@ -19,3 +19,4 @@ position = Vector2(398, 243)
 collision_mask = 3
 
 [node name="Slimes" parent="." instance=ExtResource("2_5q4o7")]
+collision_mask = 1

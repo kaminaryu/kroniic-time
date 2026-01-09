@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var speed = 100
 @export var health = 10
 
-
 var knockback_lerp := 0.1
 
 var is_hit := false
