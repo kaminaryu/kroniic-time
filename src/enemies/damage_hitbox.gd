@@ -11,6 +11,8 @@ func _ready() -> void :
 func _on_area_entered(area: Area2D) -> void:
     var knockback := 64
     var damage: float = area.damage
+    
+    var player: Node = get_tree().root.get_node("Main/Player")
         
     get_parent().take_damage(area, knockback, damage);
     

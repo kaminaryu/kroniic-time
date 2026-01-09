@@ -1,6 +1,7 @@
 extends Area2D
 
-@onready var speed := 670
+@onready var speed := 400
+@onready var damage := 1
 var direction: Vector2
 #var source_of_fire: Node # set at gun.gd
 

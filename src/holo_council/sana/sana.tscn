@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bfpya72hjv6f3" path="res://src/holo_council/sana/sana.gd" id="1_hlpy5"]
 [ext_resource type="Texture2D" uid="uid://c05iotp58b37f" path="res://assets/holo_council/sana.png" id="1_sr4rp"]
 [ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_dx5e4"]
-[ext_resource type="PackedScene" uid="uid://b046binjx35ip" path="res://src/weapons/gun.tscn" id="4_o52o2"]
+[ext_resource type="PackedScene" uid="uid://b046binjx35ip" path="res://src/skills/fauna/kirin's_lash.tscn" id="4_o52o2"]
 
 [node name="Sana" type="Node2D"]
 script = ExtResource("1_hlpy5")
