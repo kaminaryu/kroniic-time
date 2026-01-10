@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://sgagb41rvdyq"]
+
+[ext_resource type="Script" uid="uid://csb0koh8fsai3" path="res://src/skills/fauna/pea.gd" id="1_lguvo"]
+[ext_resource type="Texture2D" uid="uid://b24ao6p1a6mab" path="res://assets/Skills/Fauna/pea.png" id="2_xmsw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2fra"]
+size = Vector2(16, 16)
+
+[node name="Pea" type="Area2D"]
+collision_layer = 129
+collision_mask = 131
+script = ExtResource("1_lguvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g2fra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_xmsw6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

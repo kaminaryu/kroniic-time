@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://fc55nfq44h4u"]
+
+[ext_resource type="Script" uid="uid://jc8p1a0tb7n3" path="res://src/skills/fauna/sapling.gd" id="1_uotct"]
+[ext_resource type="Texture2D" uid="uid://bkmrq4kos4o7s" path="res://assets/Skills/Fauna/SaplingStem.png" id="2_hx62n"]
+[ext_resource type="Texture2D" uid="uid://cynn2dg8reg0w" path="res://assets/Skills/Fauna/SaplingHead.png" id="3_qyor1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34cui"]
+radius = 128.0
+
+[node name="Sapling" type="Area2D"]
+script = ExtResource("1_uotct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_34cui")
+
+[node name="Stem" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_hx62n")
+
+[node name="Head" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_qyor1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

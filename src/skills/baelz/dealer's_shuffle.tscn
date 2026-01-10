@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ou4k7ohstj4"]
+
+[ext_resource type="Script" uid="uid://ccpv2sdehn2r1" path="res://src/skills/baelz/dealer's_shuffle.gd" id="1_4ujlm"]
+[ext_resource type="Texture2D" uid="uid://beh7ducf2ed73" path="res://assets/temporary/gun.png" id="2_hly3a"]
+
+[node name="Dealer\'s Shuffle" type="Node2D"]
+script = ExtResource("1_4ujlm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_hly3a")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

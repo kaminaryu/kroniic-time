@@ -14,6 +14,7 @@ physics_layer_0/collision_layer = 2
 sources/1 = SubResource("TileSetAtlasSource_d3xj3")
 
 [node name="DungeonGenerator" type="Node2D" node_paths=PackedStringArray("tilemap")]
+z_index = -10
 script = ExtResource("1_cwj6d")
 tilemap = NodePath("TileMapLayer")
 

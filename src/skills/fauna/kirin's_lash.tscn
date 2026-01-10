@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b046binjx35ip"]
+
+[ext_resource type="Script" uid="uid://7wcim1i0odx" path="res://src/skills/fauna/kirin's_lash.gd" id="1_h4c3n"]
+[ext_resource type="Texture2D" uid="uid://beh7ducf2ed73" path="res://assets/temporary/gun.png" id="2_nosib"]
+
+[node name="Kirin’s Lash" type="Node2D"]
+script = ExtResource("1_h4c3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_nosib")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

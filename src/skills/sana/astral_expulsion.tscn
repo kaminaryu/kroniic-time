@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://doiqf8bppwxde"]
+
+[ext_resource type="Script" uid="uid://cvv2qud86xx2x" path="res://src/skills/sana/astral_expulsion.gd" id="1_0mem1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0tlb"]
+radius = 192.0
+
+[sub_resource type="Gradient" id="Gradient_4ad1q"]
+colors = PackedColorArray(0.25, 0.25, 0.25, 1, 0.75, 0.75, 0.75, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0mem1"]
+gradient = SubResource("Gradient_4ad1q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jyetf"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_max = 15.0
+color_initial_ramp = SubResource("GradientTexture1D_0mem1")
+
+[sub_resource type="GDScript" id="GDScript_0mem1"]
+script/source = "extends GPUParticles2D
+"
+
+[node name="Astral Expulsion" type="Area2D"]
+script = ExtResource("1_0mem1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b0tlb")
+
+[node name="Explosion" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 64
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jyetf")
+script = SubResource("GDScript_0mem1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,12 +1,118 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0fmhy5g5wq2f"]
+[gd_scene load_steps=11 format=3 uid="uid://b0fmhy5g5wq2f"]
 
 [ext_resource type="Texture2D" uid="uid://eflhwj14y7bw" path="res://assets/enemies/darty.png" id="1_l2yna"]
 [ext_resource type="Script" uid="uid://3qujni5544bd" path="res://src/enemies/darty.gd" id="1_xsgw8"]
+[ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="3_h3s2i"]
+[ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="4_spiw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsgw8"]
 size = Vector2(64, 24)
 
-[node name="Darty" type="Area2D"]
+[sub_resource type="Animation" id="Animation_xsgw8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_h3s2i"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.37842, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0.0166664, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_spiw8"]
+resource_name = "flashes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.5664]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_spiw8"]
+_data = {
+&"RESET": SubResource("Animation_xsgw8"),
+&"death": SubResource("Animation_h3s2i"),
+&"flashes": SubResource("Animation_spiw8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3s2i"]
+size = Vector2(16, 28)
+
+[node name="Darty" type="CharacterBody2D"]
 script = ExtResource("1_xsgw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,5 +125,22 @@ texture = ExtResource("1_l2yna")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_spiw8")
+}
+
+[node name="DamagingHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingHitbox"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_h3s2i")
+
+[node name="DamageHitbox" parent="." instance=ExtResource("3_h3s2i")]
+hitbox = Vector2(64, 22)
+
+[node name="EnemiesSharedAttributes" parent="." instance=ExtResource("4_spiw8")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="DamagingHitbox" to="." method="_on_damaging_hitbox_body_entered"]
