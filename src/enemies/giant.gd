@@ -13,19 +13,25 @@ var player: Node
 func _ready() -> void :
     player = get_tree().root.get_node("Main/Player")
     add_to_group("Giants")
-    #player = Node2D.new()
-    #add_child(player)
+    add_to_group("Enemies")
     
     
 func _process(delta: float) -> void :
+    if ($EnemiesSharedAttributes.in_blackhole) :
+        return
+
     var direction := atan2(player.global_position.y - global_position.y, player.global_position.x - global_position.x) 
     $GiantSword.global_position = global_position + Vector2.RIGHT.rotated(direction) * 64
     $GiantSword.look_at(player.global_position)
     
     
-
-    
 func _physics_process(delta: float) -> void :
+    if ($EnemiesSharedAttributes.frozen) :
+        return
+        
+    if ($EnemiesSharedAttributes.in_blackhole) :
+        return
+        
     if (is_hit) :
         knocking_back()
         return

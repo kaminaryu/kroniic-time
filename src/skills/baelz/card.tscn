@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ygyijbb8he8t"]
 
-[ext_resource type="Script" uid="uid://c8wigc5jmsipy" path="res://src/skills/Baelz/card.gd" id="1_w4ja2"]
+[ext_resource type="Script" uid="uid://c8wigc5jmsipy" path="res://src/skills/baelz/card.gd" id="1_w4ja2"]
 [ext_resource type="Texture2D" uid="uid://w1fg2rqj7a5p" path="res://assets/Skills/Baelz/Card.png" id="2_w4ja2"]
 [ext_resource type="Texture2D" uid="uid://bakmla2oebfab" path="res://assets/Skills/Baelz/BlackCard.png" id="3_i82md"]
 

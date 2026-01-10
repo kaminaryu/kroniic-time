@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mljc5l7m3sax"]
+
+[ext_resource type="Script" uid="uid://02ij6pe5f3kw" path="res://src/skills/mumei/the_forgotten_history.gd" id="1_yw874"]
+
+[node name="TheForgottenHistory" type="Node2D"]
+script = ExtResource("1_yw874")

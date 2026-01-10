@@ -19,18 +19,26 @@ var target_position: Vector2
 var start_end_mid_point: Vector2 
 var start_distance_to_mid_point: int # dont ask
 
-
 func _ready() -> void :
     #position = Vector2(600, 300)
     randomize() # shuffle the seeds
     
     add_to_group("Slimes")
+    add_to_group("Enemies")
+    
+
     
     $Timer.wait_time = randf_range(JUMP_DELAY, JUMP_DELAY + .5)
     $Timer.start()
     
     
 func _process(delta: float) -> void :
+    if ($EnemiesSharedAttributes.frozen) :
+        return
+        
+    if ($EnemiesSharedAttributes.in_blackhole) :
+        return
+        
     if (is_jumping) :
         jump()
         

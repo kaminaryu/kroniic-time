@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://euifbcektymq"]
+
+[ext_resource type="Script" uid="uid://bdvtwf5crc74m" path="res://src/skills/sana/cosmic_singularity.gd" id="1_4qdpe"]
+
+[node name="Cosmic Singularity" type="Node2D"]
+script = ExtResource("1_4qdpe")

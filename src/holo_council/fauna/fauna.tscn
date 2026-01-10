@@ -1,18 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://w414cqclwqce"]
+[gd_scene load_steps=11 format=3 uid="uid://w414cqclwqce"]
 
 [ext_resource type="Script" uid="uid://big8ddy6ucrrd" path="res://src/holo_council/fauna/fauna.gd" id="1_c7yp3"]
 [ext_resource type="Texture2D" uid="uid://le80ber0nx7s" path="res://assets/holo_council/fauna.png" id="1_plnpr"]
 [ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_v3s1x"]
 [ext_resource type="PackedScene" uid="uid://b046binjx35ip" path="res://src/skills/fauna/kirin's_lash.tscn" id="4_255og"]
+[ext_resource type="PackedScene" uid="uid://8a0un21cmtkc" path="res://src/skills/fauna/sapling_turret.tscn" id="5_4urdc"]
+[ext_resource type="Texture2D" uid="uid://ddvglj1355s3x" path="res://assets/holo_council/fauna_idle.png" id="6_ipg1i"]
+[ext_resource type="PackedScene" uid="uid://beu3amxdc4bhb" path="res://src/skills/fauna/nature's_blessings.tscn" id="6_mkuws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkuws"]
+atlas = ExtResource("6_ipg1i")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y5e7"]
+atlas = ExtResource("6_ipg1i")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7xjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkuws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y5e7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Fauna" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_c7yp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_plnpr")
 
 [node name="SkillsHandler" parent="." instance=ExtResource("3_v3s1x")]
-basic_attack = ExtResource("4_255og")
+basic_attack_scene = ExtResource("4_255og")
+skill_1_scene = ExtResource("5_4urdc")
+ultimate_scene = ExtResource("6_mkuws")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g7xjx")
+autoplay = "default"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

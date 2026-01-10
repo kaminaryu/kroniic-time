@@ -41,9 +41,10 @@ func read_file(path: String) -> String:
 func _input(event: InputEvent) -> void:
     if (event is InputEventMouseButton) :
         if (event.pressed and event.button_index == MOUSE_BUTTON_MIDDLE) :
-            print(read_file("res://src/data/hi.json"))
-
-
+            pass
+            #print(read_file("res://src/data/hi.json"))
+            
+#region Processes
 func _process(delta: float) -> void :
     const RADIUS = 16 + 16
     
@@ -59,9 +60,7 @@ func _process(delta: float) -> void :
     if (is_hit) :
         knocking_back()
         
-        
     get_item()
-
 
 
 func _physics_process(delta: float) -> void:
@@ -84,8 +83,17 @@ func _physics_process(delta: float) -> void:
     if move_dir.length() > 0 :
         move_dir = move_dir.normalized()
         
-    velocity = move_dir * speed * speed_modifier
+    #velocity = move_dir * speed * PlayerAttributes.speed_multiplier
     move_and_slide()
+    velocity = move_dir * speed * PlayerAttributes.speed_multiplier
+    
+    var mouse_pos = get_global_mouse_position()
+    var look_angle: float = atan2(mouse_pos.y - global_position.y, mouse_pos.x - global_position.x)
+    
+    if abs(look_angle) > PI / 2:
+        $MemberController.scale.x = -1  # Mirrors the sprite vertically to fix orientation
+    else:
+        $MemberController.scale.x = 1   # Resets to normal orientation
     
     # emitting particle when squad member changes    
     if Input.is_action_just_pressed("change_squad_1") :
@@ -100,23 +108,8 @@ func _physics_process(delta: float) -> void:
     elif Input.is_action_just_pressed("change_squad_4") :
         $SpawnEffect.color = Color("f6ca9f")
         $SpawnEffect.emitting = true
+#endregion
 
-
-func get_item() -> void :
-    var items = JSON.parse_string(read_file("res://src/data/items.json"))
-
-    for i in items :
-        if (item == i) :
-            if (items[i]["Attribute"] == "Speed") :
-                speed_modifier = items[i]["Modifier"]
-            else :
-                speed_modifier = 1.0
-                
-            if (items[i]["Attribute"] == "Damage") :
-                damage_modifier = items[i]["Modifier"]
-            else :
-                damage_modifier = 1.0
-    
 
 #region DAMAGE
 func take_damage(hostile_entity: Node, knockback_strength: int, damage: int) -> void :
@@ -144,7 +137,23 @@ func knocking_back() :
         is_hit = false
     
 #endregion
+    
+func get_item() -> void :
+    var items = JSON.parse_string(read_file("res://src/data/items.json"))
 
+    for i in items :
+        if (item == i) :
+            if (items[i]["Attribute"] == "Speed") :
+                speed_modifier = items[i]["Modifier"]
+                PlayerAttributes.speed_multiplier
+            else :
+                PlayerAttributes.speed_multiplier
+                
+            if (items[i]["Attribute"] == "Damage") :
+                damage_modifier = items[i]["Modifier"]
+            else :
+                damage_modifier = 1.
+                
 
 #region SIGNAL
 func _on_hitbox_body_entered(body: Node2D) -> void:

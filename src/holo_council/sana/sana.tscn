@@ -1,18 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqm8xske45rse"]
+[gd_scene load_steps=11 format=3 uid="uid://bqm8xske45rse"]
 
 [ext_resource type="Script" uid="uid://bfpya72hjv6f3" path="res://src/holo_council/sana/sana.gd" id="1_hlpy5"]
 [ext_resource type="Texture2D" uid="uid://c05iotp58b37f" path="res://assets/holo_council/sana.png" id="1_sr4rp"]
 [ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_dx5e4"]
-[ext_resource type="PackedScene" uid="uid://b046binjx35ip" path="res://src/skills/fauna/kirin's_lash.tscn" id="4_o52o2"]
+[ext_resource type="PackedScene" uid="uid://vsn4f2136f3t" path="res://src/skills/sana/stellar_strike.tscn" id="4_o52o2"]
+[ext_resource type="PackedScene" uid="uid://doiqf8bppwxde" path="res://src/skills/sana/astral_expulsion.tscn" id="5_43t81"]
+[ext_resource type="Texture2D" uid="uid://dvjaq1gn2uurx" path="res://assets/holo_council/sana_idle.png" id="6_gyigx"]
+[ext_resource type="PackedScene" uid="uid://euifbcektymq" path="res://src/skills/sana/cosmic_singularity.tscn" id="6_jveqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jveqs"]
+atlas = ExtResource("6_gyigx")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpmo6"]
+atlas = ExtResource("6_gyigx")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ribk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jveqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpmo6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Sana" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_hlpy5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_sr4rp")
 
 [node name="SkillsHandler" parent="." instance=ExtResource("3_dx5e4")]
-basic_attack = ExtResource("4_o52o2")
+basic_attack_scene = ExtResource("4_o52o2")
+skill_1_scene = ExtResource("5_43t81")
+ultimate_scene = ExtResource("6_jveqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ribk4")
+autoplay = "default"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

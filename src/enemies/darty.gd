@@ -17,12 +17,19 @@ var player: Node
 
 func _ready() -> void :
     add_to_group("Darts")
-    randomize()
+    add_to_group("Enemies")
     
+    randomize()
     player = get_tree().root.get_node("Main/Player")
     
 
 func _process(delta: float) -> void :
+    if ($EnemiesSharedAttributes.frozen) :
+        return
+        
+    if ($EnemiesSharedAttributes.in_blackhole) :
+        return
+        
     #print("CD, TF, DSH: ", cooling_down, " | ", target_found, " | ", is_dashing)
     if (cooling_down) :
         $Sprite2D.modulate = Color8(67, 67, 67)

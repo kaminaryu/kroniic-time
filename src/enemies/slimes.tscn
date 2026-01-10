@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cacujn1fymrst"]
+[gd_scene load_steps=12 format=3 uid="uid://cacujn1fymrst"]
 
 [ext_resource type="Texture2D" uid="uid://0u5b6u4w1rfu" path="res://assets/enemies/slime.png" id="1_bi7ni"]
 [ext_resource type="Script" uid="uid://ubf8ej16x56y" path="res://src/enemies/slimes.gd" id="1_wxtys"]
 [ext_resource type="Texture2D" uid="uid://dbnahn7owiro" path="res://assets/temporary/target-marker.png" id="3_hlhrs"]
 [ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="4_i7y8y"]
+[ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="5_5mtwo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi7ni"]
 size = Vector2(1, 1)
@@ -89,8 +90,8 @@ _data = {
 }
 
 [node name="Slimes" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_wxtys")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -120,6 +121,8 @@ texture = ExtResource("1_bi7ni")
 
 [node name="DamageHitbox" parent="." instance=ExtResource("4_i7y8y")]
 hitbox = Vector2(32, 32)
+
+[node name="EnemiesSharedAttributes" parent="." instance=ExtResource("5_5mtwo")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

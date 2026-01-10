@@ -3,7 +3,7 @@ extends Node2D
 @export var spread: float = 10.0
 @export var cooldown: float = 0.3
 
-var card_scene := preload("res://src/skills/Baelz/card.tscn")
+var card_scene := preload("res://src/skills/baelz/card.tscn")
 var is_pressing := false
 var cooling_down := false
 
@@ -31,6 +31,7 @@ func _process(delta: float) -> void :
         card.position = global_position 
         card.rotation = aim_rotation + PI/2
         card.scale = Vector2(1, 1)
+        card.shooter = self
         
         # change the texture of the cards randomly
         card.get_node("CardFaces").frame = randi_range(0, 1)

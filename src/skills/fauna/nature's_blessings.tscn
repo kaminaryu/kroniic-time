@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://beu3amxdc4bhb"]
+
+[ext_resource type="Script" uid="uid://62dgogso4yb2" path="res://src/skills/fauna/nature's_blessings.gd" id="1_s1trh"]
+
+[node name="Nature\'s Blessings" type="Node2D"]
+script = ExtResource("1_s1trh")

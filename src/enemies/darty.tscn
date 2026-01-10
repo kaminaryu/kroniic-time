@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0fmhy5g5wq2f"]
+[gd_scene load_steps=11 format=3 uid="uid://b0fmhy5g5wq2f"]
 
 [ext_resource type="Texture2D" uid="uid://eflhwj14y7bw" path="res://assets/enemies/darty.png" id="1_l2yna"]
 [ext_resource type="Script" uid="uid://3qujni5544bd" path="res://src/enemies/darty.gd" id="1_xsgw8"]
 [ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="3_h3s2i"]
+[ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="4_spiw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsgw8"]
 size = Vector2(64, 24)
@@ -137,6 +138,8 @@ shape = SubResource("RectangleShape2D_h3s2i")
 
 [node name="DamageHitbox" parent="." instance=ExtResource("3_h3s2i")]
 hitbox = Vector2(64, 22)
+
+[node name="EnemiesSharedAttributes" parent="." instance=ExtResource("4_spiw8")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

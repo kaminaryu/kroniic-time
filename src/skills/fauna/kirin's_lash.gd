@@ -29,6 +29,7 @@ func _process(delta: float) -> void :
         leaf.direction = Vector2.RIGHT.rotated(aim_rotation)
         leaf.position = global_position
         leaf.rotation = aim_rotation + PI/2
+        leaf.shooter = self
         #leaf.source_of_fire = self.get_parent().get_parent() # player
         
         get_tree().root.add_child(leaf)
