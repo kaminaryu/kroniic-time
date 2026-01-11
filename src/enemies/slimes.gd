@@ -131,11 +131,16 @@ func take_damage(hitter_node: Node, knockback: int, damage: float) -> void :
         $AnimationPlayer.play("death")
         Kronii.time_left += 5
         return
-        
+    
+    knock_back(hitter_node, knockback)    
+    
+
+func knock_back(hitter_node: Node, knockback: int) -> void :
     var opposite_direction := atan2(global_position.y - hitter_node.global_position.y, global_position.x - hitter_node.global_position.x)
     var variable_knockback := knockback + randf_range(-8, 8)
     knockback_pos = position + variable_knockback * Vector2.RIGHT.rotated(opposite_direction)
     
+    is_hit = true
     $AnimationPlayer.play("flashes")
 
     

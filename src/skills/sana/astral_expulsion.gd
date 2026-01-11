@@ -23,7 +23,8 @@ func explode() -> void :
         #var enemy_pos  = enemy.global_position
         
         # for now ts is the solution for ease,
-        enemy.take_damage(player, 256, 0)
+        #enemy.take_damage(player, 256, 0)
+        enemy.knock_back(player, 256)
     
     enemies.clear()
     
