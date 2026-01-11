@@ -47,6 +47,7 @@ scale = Vector2(0.388527, 0.388527)
 texture = ExtResource("2_ntq61")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
 speed_scale = 32.0
 process_material = SubResource("ParticleProcessMaterial_n6mdv")
 

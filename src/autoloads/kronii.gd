@@ -1,7 +1,7 @@
 extends Node
 
-const MAX_TIME := 12000
-var time_left := 120000
+const MAX_TIME := 240
+var time_left := 200
 
 var timer: Timer
 

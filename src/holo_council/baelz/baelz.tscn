@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg3qloh1vuc3l"]
+[gd_scene load_steps=11 format=3 uid="uid://bg3qloh1vuc3l"]
 
 [ext_resource type="Script" uid="uid://14n0tigamwp3" path="res://src/holo_council/baelz/baelz.gd" id="1_2op5n"]
 [ext_resource type="Texture2D" uid="uid://dwqiijwdvg5jt" path="res://assets/holo_council/baelz.png" id="1_wc4yq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1ou4k7ohstj4" path="res://src/skills/baelz/dealer's_shuffle.tscn" id="4_wfw4v"]
 [ext_resource type="PackedScene" uid="uid://bklfbymefcn2g" path="res://src/skills/baelz/fool's_gambit.tscn" id="5_gbdl7"]
 [ext_resource type="Texture2D" uid="uid://4qsdnrm4iy6i" path="res://assets/holo_council/baelz_idle.png" id="6_ea36n"]
+[ext_resource type="PackedScene" uid="uid://c3oileygt3exv" path="res://src/skills/baelz/mr_squeaks'_chaos.tscn" id="6_qopvq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qopvq"]
 atlas = ExtResource("6_ea36n")
@@ -40,6 +41,7 @@ texture = ExtResource("1_wc4yq")
 [node name="SkillsHandler" parent="." instance=ExtResource("3_dn7an")]
 basic_attack_scene = ExtResource("4_wfw4v")
 skill_1_scene = ExtResource("5_gbdl7")
+ultimate_scene = ExtResource("6_qopvq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

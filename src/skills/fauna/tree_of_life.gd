@@ -27,7 +27,6 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
     if (body.name == "Player") :
         PlayerAttributes.damage_multiplier = 1.0
-        get_tree().root.get_node("Main/Player/MemberController").scale = Vector2(2, 2)
 
     
 

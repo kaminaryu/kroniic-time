@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3oileygt3exv"]
+
+[ext_resource type="Script" uid="uid://dq70hbwywgcx2" path="res://src/skills/baelz/mr_squeaks'_chaos.gd" id="1_o5uk4"]
+
+[node name="Mr Squeaks\' Chaos" type="Node2D"]
+script = ExtResource("1_o5uk4")
+
+[node name="TotalTime" type="Timer" parent="."]
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="TotalTime" to="." method="_on_total_time_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
