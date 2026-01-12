@@ -20,3 +20,7 @@ func on_timer_timeout() -> void :
         get_tree().quit()
     
     timer.start()
+
+
+func reset() -> void :
+    time_left = MAX_TIME

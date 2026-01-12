@@ -22,6 +22,7 @@ Kronii="*res://src/autoloads/kronii.gd"
 PlayerAttributes="*res://src/autoloads/player_attributes.gd"
 EnemySpawner="*res://src/autoloads/enemy_spawner.gd"
 SkillsStatisticHandler="*res://src/autoloads/skills_statistic_handler.gd"
+SceneManager="*res://src/autoloads/scene_manager.gd"
 
 [display]
 

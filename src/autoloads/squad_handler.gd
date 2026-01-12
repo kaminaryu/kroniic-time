@@ -44,3 +44,7 @@ func change_squad_member(member: String) -> void :
         return
         
     member_controller.add_child(member_node)
+
+
+func reset() -> void :
+    change_squad_member("Mumei")

@@ -3,7 +3,7 @@ extends Node
 # Make the skills duration also in here
 
 # cooldown (in sec) of every skills
-const skills_cooldown: Dictionary[String, Array] = {
+var skills_cooldown: Dictionary[String, Array] = {
     "Baelz": [10, 0],
     "Fauna": [12, 0],
     "Mumei": [7, 0],
@@ -17,7 +17,6 @@ var skills_is_active: Dictionary[String, Array] = {
     "Mumei": [true, true],
     "Sana" : [true, true]
 }
-
 
 
 var ultimate_energy: Dictionary[String, Dictionary] = {
@@ -46,6 +45,8 @@ var timer_running: Dictionary = {
     "Mumei": [null, null],
     "Sana":  [null, null]
 }
+
+
 
 func is_skill_avaiable(member: String, skill: int) -> bool:
     print(member, " is running skill ", skill)
@@ -106,3 +107,45 @@ func increase_synergy() -> void :
 #
     #ultimate_energy["Sana"]["Current"] += 0.2
     #ultimate_energy["Fauna"]["Current"] += 0.4
+
+func reset() -> void :
+    skills_cooldown = {
+        "Baelz": [10, 0],
+        "Fauna": [12, 0],
+        "Mumei": [7, 0],
+        "Sana" : [8, 0]
+    }
+
+    skills_is_active = {
+        "Baelz": [true, true],
+        "Fauna": [true, true],
+        "Mumei": [true, true],
+        "Sana" : [true, true]
+    }
+
+
+    ultimate_energy = {
+        "Baelz": {
+            "Current": 0,
+            "Max": 50
+        },
+        "Fauna": {
+            "Current": 0,
+            "Max": 40
+        },
+        "Mumei": {
+            "Current": 0,
+            "Max": 70
+        },
+        "Sana" : {
+            "Current": 0,
+            "Max": 60
+        }
+    }
+    
+    timer_running = {
+        "Baelz": [null, null],
+        "Fauna": [null, null],
+        "Mumei": [null, null],
+        "Sana":  [null, null]
+    }
