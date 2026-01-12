@@ -21,6 +21,7 @@ SquadHandler="*res://src/autoloads/squad_handler.gd"
 Kronii="*res://src/autoloads/kronii.gd"
 PlayerAttributes="*res://src/autoloads/player_attributes.gd"
 EnemySpawner="*res://src/autoloads/enemy_spawner.gd"
+SkillsStatisticHandler="*res://src/autoloads/skills_statistic_handler.gd"
 
 [display]
 
