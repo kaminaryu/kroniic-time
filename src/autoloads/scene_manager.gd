@@ -8,7 +8,7 @@ var scenes: Dictionary[String, Dictionary] = {
 }
 
 func change_to_scene(scene_name: String) -> void :
-     
+    pass
     
 func run_main() -> void :
-    
+    pass
