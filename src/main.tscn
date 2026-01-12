@@ -2,26 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://btledwjve2mc5" path="res://src/dungeons/dungeon_generator.tscn" id="1_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="1_gh0ne"]
-[ext_resource type="PackedScene" uid="uid://cacujn1fymrst" path="res://src/enemies/slimes.tscn" id="2_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://duryiepi65eh1" path="res://src/UI/gameplay.tscn" id="4_3cfgd"]
 [ext_resource type="PackedScene" uid="uid://b70extb05pjm0" path="res://src/spawners/slime_spawner.tscn" id="5_rlaii"]
 [ext_resource type="PackedScene" uid="uid://jefuol60435i" path="res://src/spawners/darty_spawner.tscn" id="6_5mrjc"]
+[ext_resource type="PackedScene" uid="uid://ckwwikqmiv8jg" path="res://src/spawners/big_spawner.tscn" id="6_rlaii"]
 [ext_resource type="PackedScene" uid="uid://dnrj02npdabpo" path="res://src/level_manager.tscn" id="7_kf8lf"]
 
 [node name="Main" type="Node2D"]
 
-[node name="DungeonGenerator" parent="." node_paths=PackedStringArray("player", "slime_spawner", "darty_spawner", "level_manager") instance=ExtResource("1_5q4o7")]
+[node name="DungeonGenerator" parent="." node_paths=PackedStringArray("player", "slime_spawner", "darty_spawner", "giant_spawner", "level_manager") instance=ExtResource("1_5q4o7")]
 player = NodePath("../Player")
 slime_spawner = NodePath("../Slime Spawner")
 darty_spawner = NodePath("../Darty Spawner")
+giant_spawner = NodePath("../Big Spawner")
 level_manager = NodePath("../Level Manager")
 
 [node name="Player" parent="." instance=ExtResource("1_gh0ne")]
 position = Vector2(398, 243)
 collision_mask = 3
-
-[node name="Slimes" parent="." instance=ExtResource("2_5q4o7")]
-collision_mask = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -31,4 +29,7 @@ collision_mask = 1
 
 [node name="Darty Spawner" parent="." instance=ExtResource("6_5mrjc")]
 
-[node name="Level Manager" parent="." instance=ExtResource("7_kf8lf")]
+[node name="Big Spawner" parent="." instance=ExtResource("6_rlaii")]
+
+[node name="Level Manager" parent="." node_paths=PackedStringArray("dungeon_generator") instance=ExtResource("7_kf8lf")]
+dungeon_generator = NodePath("../DungeonGenerator")

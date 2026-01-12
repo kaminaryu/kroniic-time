@@ -14,8 +14,16 @@ func get_slime_spawn_amount(current_level) -> int:
 	return 4 + (current_level - 1)/2
 	
 func get_darties_spawn_amount(current_level) -> int:
+	# Starts at 0, increases by 1 every 2 levels
+	if (current_level < 2):
+		return 0
+	return randi_range(0, current_level)
+	
+func get_giants_spawn_amount(current_level) -> int:
 	# Starts at 4, increases by 1 every 2 levels
-	return (current_level - 1) / 2
+	if(current_level < 3):
+		return 0
+	return randi_range(0, current_level-2)
 
 func _process(delta: float) -> void:
 	var count = get_enemy_count()

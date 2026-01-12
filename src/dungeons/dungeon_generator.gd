@@ -4,10 +4,11 @@ extends Node2D
 @export var player : CharacterBody2D
 @export var slime_spawner: Node2D
 @export var darty_spawner: Node2D
+@export var giant_spawner: Node2D
 @export var level_manager: Node2D
 
-const DUNGEON_WIDTH = 100
-const DUNGEON_HEIGHT = 100
+const DUNGEON_WIDTH = 150
+const DUNGEON_HEIGHT = 150
 
 const MIN_ROOM_WIDTH = 16
 const MAX_ROOM_WIDTH = 24
@@ -124,12 +125,14 @@ func render_dungeon():
 					tilemap.set_cell(Vector2i(x, y), 2, wall_atlas_coords)
  
 func create_dungeon(current_level):
-	var dungeon = generate_dungeon(randi_range(1, 4) + current_level)
+	var dungeon = generate_dungeon(randi_range(1, 2) + current_level)
 	var player_room = place_player(dungeon)
 	var slime_spawn_amount = level_manager.get_slime_spawn_amount(current_level)
 	var darties_spawn_amount = level_manager.get_darties_spawn_amount(current_level)
+	var giants_spawn_amount = level_manager.get_giants_spawn_amount(current_level)
 	slime_spawner.spawn_slimes(dungeon, player_room, slime_spawn_amount)
 	darty_spawner.spawn_darties(dungeon, player_room, darties_spawn_amount)
+	giant_spawner.spawn_darties(dungeon, player_room, giants_spawn_amount)
 	
 	print("Spawning ", slime_spawn_amount, " Slimes")
 	print("Spawning ", darties_spawn_amount, " Darties")
