@@ -56,6 +56,17 @@ layout_mode = 2
 theme = ExtResource("3_1wfgh")
 text = "Play"
 
+[node name="Options" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_1wfgh")
+text = "Options"
+
+[node name="Credits" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_1wfgh")
+text = "Credits
+"
+
 [node name="Quit" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_1wfgh")
