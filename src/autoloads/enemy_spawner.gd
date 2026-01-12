@@ -9,6 +9,10 @@ func _ready() -> void :
     
     
 func _input(event: InputEvent) -> void :
+    if (true) :
+        return
+        
+    # DEBUG
     if (event is InputEventMouseButton) :
         if (event.pressed and event.button_index == MOUSE_BUTTON_MIDDLE) :
             var option := randi_range(0, 2)

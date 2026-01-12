@@ -9,12 +9,27 @@ var squad_scenes: Dictionary[String,  PackedScene] = {
 }
 var selected_member: String
 var member_node: Node
-
-func _ready() -> void :
-    change_squad_member("Mumei")
+var readyy: bool = false
+    
+func reset() -> void :
+    #readyy = false
+    #var fuckass_shitass_bug = Timer.new()
+    #fuckass_shitass_bug.wait_time = 0.1
+    #fuckass_shitass_bug.start()
+    #fuckass_shitass_bug.timeout.connect(
+        #func():
+            selected_member = " "
+            change_squad_member("Mumei")
+            #fuckass_shitass_bug.queue_free()
+            #readyy = true
+    #)
+    #get_tree().root.add_child(fuckass_shitass_bug)
+    #fuckass_shitass_bug.start()
     
     
 func _process(delta: float) -> void :
+    
+    print(selected_member, "| fuck")
     
     if Input.is_action_just_pressed("change_squad_1") :
         change_squad_member("Baelz")
@@ -44,7 +59,3 @@ func change_squad_member(member: String) -> void :
         return
         
     member_controller.add_child(member_node)
-
-
-func reset() -> void :
-    change_squad_member("Mumei")

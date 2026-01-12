@@ -1,6 +1,9 @@
 extends Control
 
 func _process(delta: float) -> void:
+    if (SquadHandler.selected_member == null) :
+        return
+        
     update_time()
     update_ultbar()
     update_squad_circles()
