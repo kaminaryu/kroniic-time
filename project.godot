@@ -32,7 +32,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg", "res://addons/indent_guidelines/plugin.cfg")
 
 [global_group]
 
@@ -104,3 +104,4 @@ ultimate={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

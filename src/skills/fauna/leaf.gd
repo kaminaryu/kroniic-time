@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var speed := 400
+@onready var speed := 676
 @onready var damage: float = 1.0
 
 var direction: Vector2

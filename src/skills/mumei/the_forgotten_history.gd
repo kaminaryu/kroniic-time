@@ -2,14 +2,9 @@ extends Node2D
 
 const TIME_LIMIT = 10000#ms
 
-func _input(event: InputEvent) -> void :
-    if (event is not InputEventKey) :
-        return
-        
-    if (Input.is_action_just_pressed("ultimate")) :
-        eradicate()
-            
-            
+func run() -> void :
+    eradicate()            
+
 func eradicate() -> void :
     var on_screen_enemies := get_tree().get_nodes_in_group("Enemies").filter(
         func(enemy): return enemy.get_node("EnemiesSharedAttributes").is_on_screen

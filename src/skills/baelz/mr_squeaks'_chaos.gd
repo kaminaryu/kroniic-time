@@ -6,17 +6,14 @@ var mr_s_scene := preload("res://src/skills/baelz/mr_squeaks.tscn")
 func _ready() -> void :
     randomize()
     
-func _input(event: InputEvent) -> void :
-    if (event is not InputEventKey) :
-        return
-        
-    if (Input.is_action_just_pressed("ultimate")) :
-        spawn_mr_s()
-        var total_time = randf_range(6.7, 10.7)
-        $TotalTime.wait_time = total_time
-        $TotalTime.start()
-        #total_rats = randi_range(20, 40)
-        
+    
+func run() -> void :
+    spawn_mr_s()
+    var total_time = randf_range(6.7, 10.7)
+    $TotalTime.wait_time = total_time
+    $TotalTime.start()
+    #total_rats = randi_range(20, 40)
+
         
 func spawn_mr_s() -> void :
     var mr_s = mr_s_scene.instantiate()

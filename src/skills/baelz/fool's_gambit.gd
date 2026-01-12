@@ -2,13 +2,11 @@ extends Node2D
 
 func _ready() -> void :
     randomize()
-
-
-func _input(event: InputEvent) -> void :
-    if (event is not InputEventKey) :
-        return
         
-    if (event.is_action_pressed("skill1")) :
+func run() -> void :
+    roll_d10()
+        
+func roll_d10() -> void :
         #1-5 : Debuff
         #6-20 : Buff
         var dice = randi_range(1, 20)

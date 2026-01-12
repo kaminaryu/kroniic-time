@@ -18,15 +18,20 @@ func _on_body_entered(body: Node2D) -> void:
     if (body.name == "Player") :
         if (SquadHandler.selected_member == "Fauna") :
             PlayerAttributes.damage_multiplier = 2.5
+            PlayerAttributes.speed_multiplier = 2.0
+            print("Player ft. fauna getting 2.5 damage multiplier and 2.0 speed")
             #get_tree().root.get_node("Main/Player/MemberController").scale = Vector2(10.0, 10.0)
         else :
             PlayerAttributes.damage_multiplier = 2.0
+            PlayerAttributes.speed_multiplier = 1.5
+            print("Player getting 2.0 damage multiplier and 1.5 speed")
             #get_tree().root.get_node("Main/Player/MemberController").scale = Vector2(5.0, 5.0)
             
 
 func _on_body_exited(body: Node2D) -> void:
     if (body.name == "Player") :
         PlayerAttributes.damage_multiplier = 1.0
+        PlayerAttributes.speed_multiplier = 1.0
 
     
 
