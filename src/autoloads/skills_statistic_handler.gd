@@ -86,9 +86,23 @@ func is_ultimate_available(member: String) -> bool :
     return true
 
 
-func _process(delta: float) -> void:
-    ultimate_energy["Mumei"]["Current"] += 0.032
-    ultimate_energy["Baelz"]["Current"] += 0.1
+func get_cooldown(member: String, skill: int) -> Timer :
+    if (timer_running[member][skill] == null) :
+        return null
+    
+    return timer_running[member][skill]
+    pass
 
-    ultimate_energy["Sana"]["Current"] += 0.2
-    ultimate_energy["Fauna"]["Current"] += 0.4
+
+func increase_synergy() -> void :
+    var member: String = SquadHandler.selected_member
+    var amount: int = randi_range(5, 7)
+    ultimate_energy[member]["Current"] += amount
+
+
+#func _process(delta: float) -> void:
+    #ultimate_energy["Mumei"]["Current"] += 0.032
+    #ultimate_energy["Baelz"]["Current"] += 0.1
+#
+    #ultimate_energy["Sana"]["Current"] += 0.2
+    #ultimate_energy["Fauna"]["Current"] += 0.4

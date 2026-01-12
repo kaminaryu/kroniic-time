@@ -11,8 +11,12 @@ var skill_1: Node
 var skill_2: Node
 var ultimate: Node
 
+var spawn_delay: bool = false
+
 func entered_tree() -> void:
     var player := get_parent().get_parent().get_parent()
+    
+    spawn_delay = true
     
     # Handle Basic Attack
     if (basic_attack_scene):
@@ -55,6 +59,9 @@ func exited_tree() -> void:
 
 
 func _input(event: InputEvent) -> void :
+    if (spawn_delay) :
+        return
+        
     if (event.is_action_pressed("skill1")) :
         var member: String = get_parent().name
         var skill := 0
@@ -77,3 +84,7 @@ func _input(event: InputEvent) -> void :
         else :
             print("Ultimate ", member, " unavailable")            
         
+
+
+func _on_spawn_delay_timeout() -> void:
+    spawn_delay = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://duryiepi65eh1"]
+[gd_scene load_steps=16 format=3 uid="uid://duryiepi65eh1"]
 
 [ext_resource type="Script" uid="uid://do33fcsvbqpx4" path="res://src/UI/gameplay.gd" id="1_txgtp"]
 [ext_resource type="Texture2D" uid="uid://bhnrx0bxr1iqw" path="res://assets/UI/bottom_bar/timeUnder.png" id="2_cwnlb"]
@@ -12,6 +12,43 @@
 [ext_resource type="Texture2D" uid="uid://6hlhmj2q1440" path="res://assets/UI/bottom_bar/SkillCircle/UltProg.png" id="10_sd4ae"]
 [ext_resource type="Texture2D" uid="uid://di8dl5s8wanfm" path="res://assets/UI/bottom_bar/ItemDisplay/DisplayOver.png" id="11_cycyj"]
 [ext_resource type="Texture2D" uid="uid://biwqa0kpjs6x1" path="res://assets/UI/Kronii/KroniiFull.png" id="12_equsc"]
+
+[sub_resource type="Animation" id="Animation_txgtp"]
+resource_name = "KroniWobble"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.45, 0.9),
+"transitions": PackedFloat32Array(0.45, 1, 0.45),
+"update": 0,
+"values": [Vector2(160, 540), Vector2(160, 532), Vector2(160, 540)]
+}
+
+[sub_resource type="Animation" id="Animation_cwnlb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjm33"]
+_data = {
+&"KroniWobble": SubResource("Animation_txgtp"),
+&"RESET": SubResource("Animation_cwnlb")
+}
 
 [node name="Gameplay UI" type="Control"]
 layout_mode = 3
@@ -39,6 +76,7 @@ theme_override_constants/margin_bottom = 32
 [node name="TextureProgressBar" type="TextureProgressBar" parent="KroniiBar"]
 texture_filter = 1
 layout_mode = 2
+step = 0.1
 value = 68.0
 nine_patch_stretch = true
 stretch_margin_left = 32
@@ -67,6 +105,7 @@ theme_override_constants/margin_bottom = 96
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UltBar"]
 texture_filter = 1
 layout_mode = 2
+step = 0.1
 value = 68.0
 nine_patch_stretch = true
 stretch_margin_left = 8
@@ -95,6 +134,7 @@ theme_override_constants/margin_bottom = 32
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="SkillCircle"]
 layout_mode = 2
+step = 0.1
 value = 77.0
 fill_mode = 5
 texture_progress = ExtResource("8_8o81o")
@@ -113,6 +153,7 @@ theme_override_constants/separation = 32
 
 [node name="Baelz" type="TextureProgressBar" parent="Squad/HBoxContainer"]
 layout_mode = 2
+step = 0.1
 value = 45.0
 fill_mode = 4
 radial_initial_angle = 180.0
@@ -121,6 +162,7 @@ texture_progress = ExtResource("10_sd4ae")
 
 [node name="Fauna" type="TextureProgressBar" parent="Squad/HBoxContainer"]
 layout_mode = 2
+step = 0.1
 value = 50.0
 fill_mode = 4
 radial_initial_angle = 180.0
@@ -129,6 +171,7 @@ texture_progress = ExtResource("10_sd4ae")
 
 [node name="Mumei" type="TextureProgressBar" parent="Squad/HBoxContainer"]
 layout_mode = 2
+step = 0.1
 value = 50.0
 fill_mode = 4
 radial_initial_angle = 180.0
@@ -137,6 +180,7 @@ texture_progress = ExtResource("10_sd4ae")
 
 [node name="Sana" type="TextureProgressBar" parent="Squad/HBoxContainer"]
 layout_mode = 2
+step = 0.1
 value = 50.0
 fill_mode = 4
 radial_initial_angle = 180.0
@@ -165,9 +209,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -164.0
-offset_right = 128.0
+offset_left = -480.0
+offset_top = -180.0
+offset_right = 480.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 704
@@ -177,3 +221,9 @@ theme_override_constants/margin_bottom = 16
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("12_equsc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kronii/TextureRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_wjm33")
+}
+autoplay = "KroniWobble"
