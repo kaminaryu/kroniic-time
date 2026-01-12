@@ -1,14 +1,9 @@
 extends Area2D
 
 var enemies: Array[Node]
-
-func _input(event: InputEvent) -> void :
-    if (event is not InputEventKey) :
-        return
-    
-    if (event.is_action_pressed("skill1")) :
-        explode()
         
+func run() -> void :
+    explode()
 
 func explode() -> void :
     var player := get_tree().root.get_node("Main/Player")

@@ -21,6 +21,8 @@ SquadHandler="*res://src/autoloads/squad_handler.gd"
 Kronii="*res://src/autoloads/kronii.gd"
 PlayerAttributes="*res://src/autoloads/player_attributes.gd"
 EnemySpawner="*res://src/autoloads/enemy_spawner.gd"
+SkillsStatisticHandler="*res://src/autoloads/skills_statistic_handler.gd"
+SceneManager="*res://src/autoloads/scene_manager.gd"
 
 [display]
 
@@ -31,7 +33,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg", "res://addons/indent_guidelines/plugin.cfg")
 
 [global_group]
 
@@ -103,3 +105,4 @@ ultimate={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

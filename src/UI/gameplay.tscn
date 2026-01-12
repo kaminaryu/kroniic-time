@@ -1,0 +1,229 @@
+[gd_scene load_steps=16 format=3 uid="uid://duryiepi65eh1"]
+
+[ext_resource type="Script" uid="uid://do33fcsvbqpx4" path="res://src/UI/gameplay.gd" id="1_txgtp"]
+[ext_resource type="Texture2D" uid="uid://bhnrx0bxr1iqw" path="res://assets/UI/bottom_bar/timeUnder.png" id="2_cwnlb"]
+[ext_resource type="Texture2D" uid="uid://dtfcqvkycekg0" path="res://assets/UI/bottom_bar/timeOverlay.png" id="3_wjm33"]
+[ext_resource type="Texture2D" uid="uid://b86e3pqj1xtbb" path="res://assets/UI/bottom_bar/timeProgress.png" id="4_hrvv6"]
+[ext_resource type="Texture2D" uid="uid://qdsscajdbetw" path="res://assets/UI/bottom_bar/UltBar/ultbarUnder.png" id="5_cit2s"]
+[ext_resource type="Texture2D" uid="uid://c1sqicnv5b7g8" path="res://assets/UI/bottom_bar/UltBar/ultbarOver.png" id="6_oqj05"]
+[ext_resource type="Texture2D" uid="uid://dn11dq23ftxos" path="res://assets/UI/bottom_bar/UltBar/ultbarProgress.png" id="7_wxacj"]
+[ext_resource type="Texture2D" uid="uid://bncv21xw55ypi" path="res://assets/UI/bottom_bar/SkillCircle/CooldownOverlay.png" id="8_8o81o"]
+[ext_resource type="Texture2D" uid="uid://bp7rkjs0wwxau" path="res://assets/UI/bottom_bar/Squad/MemberCircle.png" id="9_3q251"]
+[ext_resource type="Texture2D" uid="uid://6hlhmj2q1440" path="res://assets/UI/bottom_bar/SkillCircle/UltProg.png" id="10_sd4ae"]
+[ext_resource type="Texture2D" uid="uid://di8dl5s8wanfm" path="res://assets/UI/bottom_bar/ItemDisplay/DisplayOver.png" id="11_cycyj"]
+[ext_resource type="Texture2D" uid="uid://biwqa0kpjs6x1" path="res://assets/UI/Kronii/KroniiFull.png" id="12_equsc"]
+
+[sub_resource type="Animation" id="Animation_txgtp"]
+resource_name = "KroniWobble"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.45, 0.9),
+"transitions": PackedFloat32Array(0.45, 1, 0.45),
+"update": 0,
+"values": [Vector2(160, 540), Vector2(160, 532), Vector2(160, 540)]
+}
+
+[sub_resource type="Animation" id="Animation_cwnlb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjm33"]
+_data = {
+&"KroniWobble": SubResource("Animation_txgtp"),
+&"RESET": SubResource("Animation_cwnlb")
+}
+
+[node name="Gameplay UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_txgtp")
+
+[node name="KroniiBar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -96.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="KroniiBar"]
+texture_filter = 1
+layout_mode = 2
+step = 0.1
+value = 68.0
+nine_patch_stretch = true
+stretch_margin_left = 32
+stretch_margin_top = 32
+stretch_margin_right = 32
+stretch_margin_bottom = 32
+texture_under = ExtResource("2_cwnlb")
+texture_over = ExtResource("3_wjm33")
+texture_progress = ExtResource("4_hrvv6")
+
+[node name="UltBar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -128.0
+offset_right = 256.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 96
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UltBar"]
+texture_filter = 1
+layout_mode = 2
+step = 0.1
+value = 68.0
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_under = ExtResource("5_cit2s")
+texture_over = ExtResource("6_oqj05")
+texture_progress = ExtResource("7_wxacj")
+
+[node name="SkillCircle" type="MarginContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -64.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_right = 608
+theme_override_constants/margin_bottom = 32
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SkillCircle"]
+layout_mode = 2
+step = 0.1
+value = 77.0
+fill_mode = 5
+texture_progress = ExtResource("8_8o81o")
+
+[node name="Squad" type="MarginContainer" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Squad"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Baelz" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+layout_mode = 2
+step = 0.1
+value = 45.0
+fill_mode = 4
+radial_initial_angle = 180.0
+texture_under = ExtResource("9_3q251")
+texture_progress = ExtResource("10_sd4ae")
+
+[node name="Fauna" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+layout_mode = 2
+step = 0.1
+value = 50.0
+fill_mode = 4
+radial_initial_angle = 180.0
+texture_under = ExtResource("9_3q251")
+texture_progress = ExtResource("10_sd4ae")
+
+[node name="Mumei" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+layout_mode = 2
+step = 0.1
+value = 50.0
+fill_mode = 4
+radial_initial_angle = 180.0
+texture_under = ExtResource("9_3q251")
+texture_progress = ExtResource("10_sd4ae")
+
+[node name="Sana" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+layout_mode = 2
+step = 0.1
+value = 50.0
+fill_mode = 4
+radial_initial_angle = 180.0
+texture_under = ExtResource("9_3q251")
+texture_progress = ExtResource("10_sd4ae")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("11_cycyj")
+
+[node name="Kronii" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -180.0
+offset_right = 480.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 704
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureRect" type="TextureRect" parent="Kronii"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("12_equsc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kronii/TextureRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_wjm33")
+}
+autoplay = "KroniWobble"

@@ -1,10 +1,9 @@
 extends Node2D
 
-func _input(event: InputEvent) -> void :
-    if (event is not InputEventKey) :
-        return
-        
-    if (event.is_action_pressed("skill1")) :
+func run() -> void :
+    eating_berries()    
+    
+func eating_berries() -> void :
         print("eatring berrues")
         PlayerAttributes.speed_multiplier = 1.5
         PlayerAttributes.damage_multiplier = 1.5

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://btledwjve2mc5" path="res://src/dungeons/dungeon_generator.tscn" id="1_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="1_gh0ne"]
 [ext_resource type="PackedScene" uid="uid://cacujn1fymrst" path="res://src/enemies/slimes.tscn" id="2_5q4o7"]
-[ext_resource type="PackedScene" uid="uid://dksh626c0iwl0" path="res://src/UI/gameplay_ui.tscn" id="4_3cfgd"]
+[ext_resource type="PackedScene" uid="uid://duryiepi65eh1" path="res://src/UI/gameplay.tscn" id="4_3cfgd"]
 
 [node name="Main" type="Node2D"]
 
