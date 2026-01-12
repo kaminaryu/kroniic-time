@@ -2,16 +2,17 @@ extends Node2D
  
 @export var tilemap : TileMapLayer
 @export var player : CharacterBody2D
-@export var slime : CharacterBody2D
-@export var max_rooms : int = 10
- 
-const DUNGEON_WIDTH = 500
-const DUNGEON_HEIGHT = 500
+@export var slime_spawner: Node2D
+@export var darty_spawner: Node2D
+@export var level_manager: Node2D
+
+const DUNGEON_WIDTH = 100
+const DUNGEON_HEIGHT = 100
 
 const MIN_ROOM_WIDTH = 16
-const MAX_ROOM_WIDTH = 32
+const MAX_ROOM_WIDTH = 24
 const MIN_ROOM_HEIGHT = 16
-const MAX_ROOM_HEIGHT = 32
+const MAX_ROOM_HEIGHT = 24
  
 enum TileType { EMPTY, FLOOR, WALL }
  
@@ -20,14 +21,14 @@ var noise: FastNoiseLite
 
 func _ready():
 	create_noise()
-	create_dungeon()
- 
+	create_dungeon(1)
+
 func _input(event):
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_0:
-			create_dungeon()
+			create_dungeon(1)
  
-func generate_dungeon():
+func generate_dungeon(max_rooms):
 	dungeon_grid = []
 	for y in DUNGEON_HEIGHT:
 		dungeon_grid.append( [] )
@@ -47,7 +48,7 @@ func generate_dungeon():
  
 		var overlaps = false
 		for other in rooms:
-			if room.grow(4).intersects(other):
+			if room.grow(1).intersects(other):
 				overlaps = true
 				break
  
@@ -65,7 +66,7 @@ func generate_dungeon():
  
 	return rooms
  
-func carve_corridor(from: Vector2, to: Vector2, width: int = 8):
+func carve_corridor(from: Vector2, to: Vector2, width: int = 4):
 	var min_width = -width / 2
 	var max_width = width / 2
  
@@ -122,19 +123,25 @@ func render_dungeon():
 					var wall_atlas_coords = get_wall_variant(x, y)
 					tilemap.set_cell(Vector2i(x, y), 2, wall_atlas_coords)
  
-func create_dungeon():
-	place_player(generate_dungeon())
+func create_dungeon(current_level):
+	var dungeon = generate_dungeon(randi_range(1, 4) + current_level)
+	var player_room = place_player(dungeon)
+	var slime_spawn_amount = level_manager.get_slime_spawn_amount(current_level)
+	var darties_spawn_amount = level_manager.get_darties_spawn_amount(current_level)
+	slime_spawner.spawn_slimes(dungeon, player_room, slime_spawn_amount)
+	darty_spawner.spawn_darties(dungeon, player_room, darties_spawn_amount)
+	
+	print("Spawning ", slime_spawn_amount, " Slimes")
+	print("Spawning ", darties_spawn_amount, " Darties")
 	add_walls()
 	render_dungeon()
  
 func place_player(rooms : Array[Rect2]):
 	var player_room = rooms.pick_random()
-	var slime_room = rooms.pick_random()
-	while(player_room == slime_room):
-		slime_room = rooms.pick_random()
-		
 	player.position = player_room.get_center() * 32
-	slime.position = slime_room.get_center() * 32
+	return player_room
+
+
 
 func create_noise():
 	noise = FastNoiseLite.new()
