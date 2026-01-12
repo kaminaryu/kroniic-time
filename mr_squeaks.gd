@@ -9,8 +9,6 @@ func _process(delta: float) -> void :
     if (global_position.distance_to(target_pos) > 4) :
         global_position = global_position.lerp(target_pos, 0.15)
         
-        print(global_position, target_pos)
-
 
 func explode() -> void:
     for enemy in enemies :

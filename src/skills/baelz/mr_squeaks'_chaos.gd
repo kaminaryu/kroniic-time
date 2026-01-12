@@ -1,7 +1,7 @@
 extends Node2D
 
 var mr_s_scene := preload("res://src/skills/baelz/mr_squeaks.tscn")
-
+var running := false
 
 func _ready() -> void :
     randomize()
@@ -10,6 +10,8 @@ func _ready() -> void :
 func run() -> void :
     spawn_mr_s()
     var total_time = randf_range(6.7, 10.7)
+    
+    running = true
     $TotalTime.wait_time = total_time
     $TotalTime.start()
     #total_rats = randi_range(20, 40)
@@ -31,8 +33,11 @@ func spawn_mr_s() -> void :
 
 
 func _on_cooldown_timeout() -> void:
-    spawn_mr_s()
+    if (running) :
+        spawn_mr_s()
+        
 
 
 func _on_total_time_timeout() -> void:
-    queue_free()
+    running = false
+    $Cooldown.stop()

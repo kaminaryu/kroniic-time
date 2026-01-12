@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b70extb05pjm0"]
+
+[ext_resource type="Script" uid="uid://bbmy4rwi6inaw" path="res://src/spawners/slime_spawner.gd" id="1_3tx4e"]
+
+[node name="Slime Spawner" type="Node2D"]
+script = ExtResource("1_3tx4e")

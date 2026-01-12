@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jefuol60435i"]
+
+[ext_resource type="Script" uid="uid://cgjtwi76ptpal" path="res://src/spawners/darty_spawner.gd" id="1_84spx"]
+
+[node name="Darty Spawner" type="Node2D"]
+script = ExtResource("1_84spx")
