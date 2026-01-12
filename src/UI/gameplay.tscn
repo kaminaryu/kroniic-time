@@ -111,7 +111,15 @@ theme_override_constants/margin_top = 32
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+[node name="Baelz" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+layout_mode = 2
+value = 45.0
+fill_mode = 4
+radial_initial_angle = 180.0
+texture_under = ExtResource("9_3q251")
+texture_progress = ExtResource("10_sd4ae")
+
+[node name="Fauna" type="TextureProgressBar" parent="Squad/HBoxContainer"]
 layout_mode = 2
 value = 50.0
 fill_mode = 4
@@ -119,7 +127,7 @@ radial_initial_angle = 180.0
 texture_under = ExtResource("9_3q251")
 texture_progress = ExtResource("10_sd4ae")
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+[node name="Mumei" type="TextureProgressBar" parent="Squad/HBoxContainer"]
 layout_mode = 2
 value = 50.0
 fill_mode = 4
@@ -127,15 +135,7 @@ radial_initial_angle = 180.0
 texture_under = ExtResource("9_3q251")
 texture_progress = ExtResource("10_sd4ae")
 
-[node name="TextureProgressBar3" type="TextureProgressBar" parent="Squad/HBoxContainer"]
-layout_mode = 2
-value = 50.0
-fill_mode = 4
-radial_initial_angle = 180.0
-texture_under = ExtResource("9_3q251")
-texture_progress = ExtResource("10_sd4ae")
-
-[node name="TextureProgressBar4" type="TextureProgressBar" parent="Squad/HBoxContainer"]
+[node name="Sana" type="TextureProgressBar" parent="Squad/HBoxContainer"]
 layout_mode = 2
 value = 50.0
 fill_mode = 4

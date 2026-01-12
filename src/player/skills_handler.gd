@@ -52,3 +52,28 @@ func exited_tree() -> void:
         skill_2.queue_free()
     if ultimate:      
         ultimate.queue_free()
+
+
+func _input(event: InputEvent) -> void :
+    if (event.is_action_pressed("skill1")) :
+        var member: String = get_parent().name
+        var skill := 0
+        if (SkillsStatisticHandler.is_skill_avaiable(member, skill)) :
+            skill_1.run()
+        else :
+            print(member, " skill ", skill, " unavailable")
+            
+        
+    #if (event.is_action_pressed("skill2")) :
+        #var skill := 2
+        #if (SkillsStatisticHandler.is_skill_avaiable(get_parent().name, skill)) :
+            #skill_2.run()
+        
+        
+    if (event.is_action_pressed("ultimate")) :
+        var member: String = get_parent().name
+        if (SkillsStatisticHandler.is_ultimate_available(member)) :
+            ultimate.run()
+        else :
+            print("Ultimate ", member, " unavailable")            
+        

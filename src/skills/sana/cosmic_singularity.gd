@@ -2,13 +2,8 @@ extends Node2D
 
 var blackhole_scene := preload("res://src/skills/sana/black_hole.tscn")
 
-func _input(event: InputEvent) -> void :
-    if (event is not InputEventKey) :
-        return
-        
-    if (Input.is_action_just_pressed("ultimate")) :
-        summon_blackhole()
-        
+func run() -> void :
+    summon_blackhole()
         
 func summon_blackhole() -> void :
     var blackhole = blackhole_scene.instantiate()
