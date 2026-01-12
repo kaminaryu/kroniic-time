@@ -52,4 +52,4 @@ MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_qxkdb")
-VBoxContainer/constants/separation = 21
+VBoxContainer/constants/separation = 11
