@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3blpj20aqhy2"]
+
+[ext_resource type="Texture2D" uid="uid://buirvsdrnakw3" path="res://assets/UI/PauseMenu/paused.png" id="1_dvare"]
+[ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="2_r0ulq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nesmt"]
+bg_color = Color(0, 0, 0, 0.294118)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nesmt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -280.0
+offset_right = 175.5
+offset_bottom = -157.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dvare")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -70.0
+offset_right = 192.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_r0ulq")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_r0ulq")
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
