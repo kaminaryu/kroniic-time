@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://duryiepi65eh1"]
+[gd_scene load_steps=23 format=3 uid="uid://duryiepi65eh1"]
 
 [ext_resource type="Script" uid="uid://do33fcsvbqpx4" path="res://src/UI/gameplay.gd" id="1_txgtp"]
 [ext_resource type="Texture2D" uid="uid://bhnrx0bxr1iqw" path="res://assets/UI/bottom_bar/timeUnder.png" id="2_cwnlb"]
@@ -7,11 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://qdsscajdbetw" path="res://assets/UI/bottom_bar/UltBar/ultbarUnder.png" id="5_cit2s"]
 [ext_resource type="Texture2D" uid="uid://c1sqicnv5b7g8" path="res://assets/UI/bottom_bar/UltBar/ultbarOver.png" id="6_oqj05"]
 [ext_resource type="Texture2D" uid="uid://dn11dq23ftxos" path="res://assets/UI/bottom_bar/UltBar/ultbarProgress.png" id="7_wxacj"]
+[ext_resource type="Texture2D" uid="uid://b6mqlx25emyn0" path="res://assets/UI/bottom_bar/SkillCircle/Baelz.png" id="8_3q251"]
 [ext_resource type="Texture2D" uid="uid://bncv21xw55ypi" path="res://assets/UI/bottom_bar/SkillCircle/CooldownOverlay.png" id="8_8o81o"]
+[ext_resource type="Texture2D" uid="uid://dw6xolymf3dr4" path="res://assets/UI/bottom_bar/SkillCircle/Fauna.png" id="8_cit2s"]
 [ext_resource type="Texture2D" uid="uid://cngo2nd25lm2b" path="res://assets/UI/bottom_bar/Squad/baelz_circle.png" id="9_hrvv6"]
 [ext_resource type="Texture2D" uid="uid://b3w7hwp31qubk" path="res://assets/UI/bottom_bar/Squad/circle_progress.png" id="10_cit2s"]
+[ext_resource type="Texture2D" uid="uid://dvbkvw2mxnyjt" path="res://assets/UI/bottom_bar/SkillCircle/Mumei.png" id="10_sd4ae"]
 [ext_resource type="Texture2D" uid="uid://di8dl5s8wanfm" path="res://assets/UI/bottom_bar/ItemDisplay/DisplayOver.png" id="11_cycyj"]
 [ext_resource type="Texture2D" uid="uid://bvtcyi2se5hve" path="res://assets/UI/bottom_bar/Squad/fauna_circle.png" id="11_oqj05"]
+[ext_resource type="Texture2D" uid="uid://0imo2bjyatoe" path="res://assets/UI/bottom_bar/SkillCircle/Sana.png" id="12_cycyj"]
 [ext_resource type="Texture2D" uid="uid://biwqa0kpjs6x1" path="res://assets/UI/Kronii/KroniiFull.png" id="12_equsc"]
 [ext_resource type="Texture2D" uid="uid://c7py360wf2wbp" path="res://assets/UI/bottom_bar/Squad/mumei_cricle.png" id="12_wxacj"]
 [ext_resource type="Texture2D" uid="uid://xsu0sokn24v8" path="res://assets/UI/bottom_bar/Squad/sana_cricle.png" id="13_8o81o"]
@@ -134,12 +138,40 @@ grow_vertical = 0
 theme_override_constants/margin_right = 608
 theme_override_constants/margin_bottom = 32
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="SkillCircle"]
+[node name="Overlay" type="TextureProgressBar" parent="SkillCircle"]
 layout_mode = 2
 step = 0.1
-value = 77.0
+value = 100.0
 fill_mode = 5
 texture_progress = ExtResource("8_8o81o")
+
+[node name="Baelz" type="TextureProgressBar" parent="SkillCircle"]
+layout_mode = 2
+step = 0.1
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("8_3q251")
+
+[node name="Mumei" type="TextureProgressBar" parent="SkillCircle"]
+layout_mode = 2
+step = 0.1
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("10_sd4ae")
+
+[node name="Fauna" type="TextureProgressBar" parent="SkillCircle"]
+layout_mode = 2
+step = 0.1
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("8_cit2s")
+
+[node name="Sana" type="TextureProgressBar" parent="SkillCircle"]
+layout_mode = 2
+step = 0.1
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("12_cycyj")
 
 [node name="Squad" type="MarginContainer" parent="."]
 texture_filter = 1
@@ -190,6 +222,7 @@ texture_over = ExtResource("13_8o81o")
 texture_progress = ExtResource("10_cit2s")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
