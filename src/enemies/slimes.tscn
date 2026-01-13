@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cacujn1fymrst"]
+[gd_scene load_steps=13 format=3 uid="uid://cacujn1fymrst"]
 
 [ext_resource type="Texture2D" uid="uid://0u5b6u4w1rfu" path="res://assets/enemies/slime.png" id="1_bi7ni"]
 [ext_resource type="Script" uid="uid://ubf8ej16x56y" path="res://src/enemies/slimes.gd" id="1_wxtys"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="5_5mtwo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi7ni"]
-size = Vector2(1, 1)
+size = Vector2(32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlhrs"]
 radius = 256.0
@@ -89,6 +89,9 @@ _data = {
 &"flashes": SubResource("Animation_5mtwo")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mtwo"]
+radius = 27.0
+
 [node name="Slimes" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_wxtys")
@@ -100,6 +103,7 @@ shape = SubResource("RectangleShape2D_bi7ni")
 one_shot = true
 
 [node name="AttackRange" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_hlhrs")
@@ -123,6 +127,10 @@ hitbox = Vector2(32, 32)
 
 [node name="EnemiesSharedAttributes" parent="." instance=ExtResource("5_5mtwo")]
 
+[node name="DamagingHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingHitbox"]
+shape = SubResource("CircleShape2D_5mtwo")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3
 collide_with_areas = true
@@ -131,3 +139,5 @@ collide_with_areas = true
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="DamagingHitbox" to="." method="_on_damaging_hitbox_body_entered"]
+[connection signal="body_exited" from="DamagingHitbox" to="." method="_on_damaging_hitbox_body_exited"]

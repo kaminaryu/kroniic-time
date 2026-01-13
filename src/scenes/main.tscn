@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxxmqsv7v5p5h"]
+[gd_scene load_steps=9 format=3 uid="uid://cxxmqsv7v5p5h"]
 
 [ext_resource type="PackedScene" uid="uid://btledwjve2mc5" path="res://src/dungeons/dungeon_generator.tscn" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="2_5lsyw"]
 [ext_resource type="PackedScene" uid="uid://duryiepi65eh1" path="res://src/UI/gameplay.tscn" id="3_kokaf"]
+[ext_resource type="PackedScene" uid="uid://cy5vvcij55mvp" path="res://src/UI/transition.tscn" id="4_5lsyw"]
 [ext_resource type="PackedScene" uid="uid://b70extb05pjm0" path="res://src/spawners/slime_spawner.tscn" id="4_lp058"]
 [ext_resource type="PackedScene" uid="uid://jefuol60435i" path="res://src/spawners/darty_spawner.tscn" id="5_24j03"]
 [ext_resource type="PackedScene" uid="uid://ckwwikqmiv8jg" path="res://src/spawners/big_spawner.tscn" id="6_p1ia5"]
@@ -24,6 +25,8 @@ collision_mask = 3
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Gameplay UI" parent="UI" instance=ExtResource("3_kokaf")]
+
+[node name="Transition" parent="UI" instance=ExtResource("4_5lsyw")]
 
 [node name="Slime Spawner" parent="." instance=ExtResource("4_lp058")]
 
