@@ -67,6 +67,7 @@ scale_amount_max = 4.0
 [node name="Hand" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand"]
+visible = false
 modulate = Color(1, 1, 1, 0.160784)
 rotation = 1.5708
 scale = Vector2(0.0292969, 0.0292969)

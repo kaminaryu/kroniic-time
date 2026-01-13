@@ -46,7 +46,7 @@ func _input(event: InputEvent) -> void:
             
 #region Processes
 func _process(delta: float) -> void :
-    const RADIUS = 16 + 16
+    const RADIUS = 16 + 16 + 16
     
     var hand_node := $Hand
     var mouse_pos := get_global_mouse_position()

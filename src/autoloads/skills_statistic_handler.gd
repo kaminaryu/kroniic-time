@@ -101,12 +101,12 @@ func increase_energy() -> void :
     ultimate_energy[member]["Current"] += amount
 
 
-#func _process(delta: float) -> void:
-    #ultimate_energy["Mumei"]["Current"] += 0.032
-    #ultimate_energy["Baelz"]["Current"] += 0.1
-#
-    #ultimate_energy["Sana"]["Current"] += 0.2
-    #ultimate_energy["Fauna"]["Current"] += 0.4
+func _process(delta: float) -> void:
+    ultimate_energy["Mumei"]["Current"] += 0.032
+    ultimate_energy["Baelz"]["Current"] += 0.1
+
+    ultimate_energy["Sana"]["Current"] += 0.2
+    ultimate_energy["Fauna"]["Current"] += 0.4
 
 func reset() -> void :
     skills_cooldown = {

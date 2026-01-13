@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3blpj20aqhy2"]
+[gd_scene load_steps=5 format=3 uid="uid://d3blpj20aqhy2"]
 
 [ext_resource type="Texture2D" uid="uid://buirvsdrnakw3" path="res://assets/UI/PauseMenu/paused.png" id="1_dvare"]
+[ext_resource type="Script" uid="uid://d378m2ut83od5" path="res://src/UI/pause_menu.gd" id="1_r0ulq"]
 [ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="2_r0ulq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nesmt"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r0ulq")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -78,3 +80,6 @@ text = "Options"
 [node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
