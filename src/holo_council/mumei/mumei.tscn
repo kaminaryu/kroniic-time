@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0h53jr3nrmku"]
+[gd_scene load_steps=17 format=3 uid="uid://d0h53jr3nrmku"]
 
 [ext_resource type="Script" uid="uid://imtae0ijx46k" path="res://src/holo_council/mumei/mumei.gd" id="1_0e7b3"]
-[ext_resource type="Texture2D" uid="uid://bg2w4hry25vir" path="res://assets/holo_council/mumei.png" id="1_pfdh3"]
+[ext_resource type="Texture2D" uid="uid://bg2w4hry25vir" path="res://assets/holo_council/placeholder/mumei.png" id="1_pfdh3"]
 [ext_resource type="PackedScene" uid="uid://b0f23ckia8kmi" path="res://src/player/skills_handler.tscn" id="3_lhi1e"]
 [ext_resource type="PackedScene" uid="uid://bggh5ct70tym4" path="res://src/skills/mumei/civilization's_sting.tscn" id="4_b44hv"]
 [ext_resource type="PackedScene" uid="uid://ccw3yd6w7a46e" path="res://src/skills/mumei/berries.tscn" id="5_y0fes"]
 [ext_resource type="PackedScene" uid="uid://mljc5l7m3sax" path="res://src/skills/mumei/the_forgotten_history.tscn" id="6_wcfgn"]
-[ext_resource type="Texture2D" uid="uid://cts3kchig5bny" path="res://assets/holo_council/mumei_idle.png" id="7_xeb4d"]
+[ext_resource type="Texture2D" uid="uid://cts3kchig5bny" path="res://assets/holo_council/idle/mumei_idle.png" id="7_xeb4d"]
+[ext_resource type="Texture2D" uid="uid://dyrs5l606f8e6" path="res://assets/holo_council/walking/character_walk/mumei_walk.png" id="8_cqqx2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqqx2"]
 atlas = ExtResource("7_xeb4d")
@@ -30,6 +31,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7ehl"]
+atlas = ExtResource("8_cqqx2")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkut0"]
+atlas = ExtResource("8_cqqx2")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dodce"]
+atlas = ExtResource("8_cqqx2")
+region = Rect2(64, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y02q"]
+atlas = ExtResource("8_cqqx2")
+region = Rect2(96, 0, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh3ba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7ehl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkut0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dodce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y02q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Mumei" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_0e7b3")
@@ -43,11 +80,16 @@ basic_attack_scene = ExtResource("4_b44hv")
 skill_1_scene = ExtResource("5_y0fes")
 ultimate_scene = ExtResource("6_wcfgn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Idle" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_c7ehl")
 autoplay = "default"
 frame_progress = 0.896745
+
+[node name="Walking" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sh3ba")
+autoplay = "default"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

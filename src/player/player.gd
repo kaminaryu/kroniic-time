@@ -71,17 +71,25 @@ func _physics_process(delta: float) -> void:
         
     var move_dir = Vector2.ZERO
     
+    var is_walking := false
+    
     if Input.is_action_pressed("move_up") :
         move_dir.y += -1
+        is_walking = true
     if Input.is_action_pressed("move_down") :
         move_dir.y += 1
+        is_walking = true
     if Input.is_action_pressed("move_left") :
         move_dir.x += -1
+        is_walking = true
     if Input.is_action_pressed("move_right") :
         move_dir.x += 1
+        is_walking = true
         
     if move_dir.length() > 0 :
         move_dir = move_dir.normalized()
+        
+    walking(is_walking)
         
     #velocity = move_dir * speed * PlayerAttributes.speed_multiplier
     move_and_slide()
@@ -109,6 +117,13 @@ func _physics_process(delta: float) -> void:
         $SpawnEffect.color = Color("f6ca9f")
         $SpawnEffect.emitting = true
 #endregion
+
+
+func walking(is_walking: bool) :
+    if ($MemberController.get_child(1)) :
+        $MemberController.get_child(1).get_node("Idle").visible = not is_walking
+        $MemberController.get_child(1).get_node("Walking").visible = is_walking
+
 
 
 #region DAMAGE

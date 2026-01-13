@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4qsdnrm4iy6i"
-path="res://.godot/imported/baelz_idle.png-b35e41306572e70001c4c404214c16be.ctex"
+uid="uid://dyrs5l606f8e6"
+path="res://.godot/imported/mumei_walk.png-ab8340cb9bed05d16c16a45e2accc58c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/baelz_idle.png"
-dest_files=["res://.godot/imported/baelz_idle.png-b35e41306572e70001c4c404214c16be.ctex"]
+source_file="res://assets/holo_council/walking/character_walk/mumei_walk.png"
+dest_files=["res://.godot/imported/mumei_walk.png-ab8340cb9bed05d16c16a45e2accc58c.ctex"]
 
 [params]
 

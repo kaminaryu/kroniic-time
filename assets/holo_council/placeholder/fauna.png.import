@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c05iotp58b37f"
-path="res://.godot/imported/sana.png-a68f89f9f8f93aa0b6c7cdb508d46fc9.ctex"
+uid="uid://le80ber0nx7s"
+path="res://.godot/imported/fauna.png-c4fceb6a5562b71e24f54084d5fd1232.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/sana.png"
-dest_files=["res://.godot/imported/sana.png-a68f89f9f8f93aa0b6c7cdb508d46fc9.ctex"]
+source_file="res://assets/holo_council/placeholder/fauna.png"
+dest_files=["res://.godot/imported/fauna.png-c4fceb6a5562b71e24f54084d5fd1232.ctex"]
 
 [params]
 

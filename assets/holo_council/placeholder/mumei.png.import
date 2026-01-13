@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cts3kchig5bny"
-path="res://.godot/imported/mumei_idle.png-11da3fe7c4204df6c50d107d716ee855.ctex"
+uid="uid://bg2w4hry25vir"
+path="res://.godot/imported/mumei.png-f3ade3d7c8cdd86a97b73427fe72f01a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/mumei_idle.png"
-dest_files=["res://.godot/imported/mumei_idle.png-11da3fe7c4204df6c50d107d716ee855.ctex"]
+source_file="res://assets/holo_council/placeholder/mumei.png"
+dest_files=["res://.godot/imported/mumei.png-f3ade3d7c8cdd86a97b73427fe72f01a.ctex"]
 
 [params]
 

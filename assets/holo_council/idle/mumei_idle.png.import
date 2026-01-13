@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddvglj1355s3x"
-path="res://.godot/imported/fauna_idle.png-6b4be5a138fe4d87bbf49f55a05a5c7e.ctex"
+uid="uid://cts3kchig5bny"
+path="res://.godot/imported/mumei_idle.png-7d7cbc5d766bd89893c69054ad3386de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/fauna_idle.png"
-dest_files=["res://.godot/imported/fauna_idle.png-6b4be5a138fe4d87bbf49f55a05a5c7e.ctex"]
+source_file="res://assets/holo_council/idle/mumei_idle.png"
+dest_files=["res://.godot/imported/mumei_idle.png-7d7cbc5d766bd89893c69054ad3386de.ctex"]
 
 [params]
 

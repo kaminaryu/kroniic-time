@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvjaq1gn2uurx"
-path="res://.godot/imported/sana_idle.png-045caf5c68d53711d35b8f4e7fac3c33.ctex"
+uid="uid://dwqiijwdvg5jt"
+path="res://.godot/imported/baelz.png-3fa2d1a15abccc527420ca847b8ffeb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/sana_idle.png"
-dest_files=["res://.godot/imported/sana_idle.png-045caf5c68d53711d35b8f4e7fac3c33.ctex"]
+source_file="res://assets/holo_council/placeholder/baelz.png"
+dest_files=["res://.godot/imported/baelz.png-3fa2d1a15abccc527420ca847b8ffeb8.ctex"]
 
 [params]
 

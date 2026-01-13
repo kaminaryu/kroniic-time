@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwqiijwdvg5jt"
-path="res://.godot/imported/baelz.png-9565fcb673c7e968d11579e1920ac6ba.ctex"
+uid="uid://4qsdnrm4iy6i"
+path="res://.godot/imported/baelz_idle.png-205fcbeba5eeed1f615080f90e076e60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/baelz.png"
-dest_files=["res://.godot/imported/baelz.png-9565fcb673c7e968d11579e1920ac6ba.ctex"]
+source_file="res://assets/holo_council/idle/baelz_idle.png"
+dest_files=["res://.godot/imported/baelz_idle.png-205fcbeba5eeed1f615080f90e076e60.ctex"]
 
 [params]
 

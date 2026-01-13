@@ -97,7 +97,6 @@ shape = SubResource("RectangleShape2D_6ttcc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -2)
 texture = ExtResource("2_e48id")
 
 [node name="GiantSword" parent="." instance=ExtResource("3_vmwgi")]
