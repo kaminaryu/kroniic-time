@@ -13,7 +13,7 @@ config_version=5
 config/name="Kroniic Time"
 run/main_scene="uid://dnwu6corgro75"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://b6u43hussv1vs"
 
 [autoload]
 

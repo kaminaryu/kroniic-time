@@ -15,7 +15,8 @@ var knockback_pos: Vector2
 var is_hit: bool = false
 var is_kb: bool = false
 
-@export var health: float = 3.0
+@export var max_health: float = 3.0
+var health: float = max_health
 
 
 func _ready() -> void :

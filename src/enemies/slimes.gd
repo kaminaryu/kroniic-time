@@ -4,7 +4,9 @@ extends CharacterBody2D
 @onready var JUMP_RANGE_MAX: int = $AttackRange/CollisionShape2D.shape.radius / 2
 
 @export var on_air: bool = false
-@export var health: int = 3
+@export var max_health: int = 5.0
+var health: int = max_health
+
 const KNOCKBACK_STRENGTH: float = 64
 const JUMP_DELAY: float = 0.5
 const JUMP_LERP := 0.04

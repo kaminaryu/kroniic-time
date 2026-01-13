@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cacujn1fymrst"]
+[gd_scene load_steps=14 format=3 uid="uid://cacujn1fymrst"]
 
 [ext_resource type="Texture2D" uid="uid://0u5b6u4w1rfu" path="res://assets/enemies/slime.png" id="1_bi7ni"]
 [ext_resource type="Script" uid="uid://ubf8ej16x56y" path="res://src/enemies/slimes.gd" id="1_wxtys"]
 [ext_resource type="Texture2D" uid="uid://dbnahn7owiro" path="res://assets/temporary/target-marker.png" id="3_hlhrs"]
 [ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="4_i7y8y"]
 [ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="5_5mtwo"]
+[ext_resource type="PackedScene" uid="uid://fcdw0b37ysvr" path="res://src/UI/enemy/health_bar.tscn" id="6_kgnhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi7ni"]
 size = Vector2(32, 32)
@@ -135,6 +136,9 @@ shape = SubResource("CircleShape2D_5mtwo")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3
 collide_with_areas = true
+
+[node name="HealthBar" parent="." instance=ExtResource("6_kgnhj")]
+offset_right = 32.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

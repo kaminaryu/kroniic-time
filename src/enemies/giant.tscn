@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d01dmecof34tt"]
+[gd_scene load_steps=12 format=3 uid="uid://d01dmecof34tt"]
 
 [ext_resource type="Script" uid="uid://ijbq6b4rw7mb" path="res://src/enemies/giant.gd" id="1_6ttcc"]
 [ext_resource type="Texture2D" uid="uid://b7o7ln2i12ljn" path="res://assets/enemies/pebble.png" id="2_e48id"]
 [ext_resource type="PackedScene" uid="uid://bxnvok0thof3c" path="res://src/enemies/giant_sword.tscn" id="3_vmwgi"]
 [ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="4_cqvqt"]
 [ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="5_e48id"]
+[ext_resource type="PackedScene" uid="uid://fcdw0b37ysvr" path="res://src/UI/enemy/health_bar.tscn" id="6_fawfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ttcc"]
 size = Vector2(64, 64)
@@ -112,6 +113,9 @@ libraries = {
 hitbox = Vector2(64, 64)
 
 [node name="EnemiesSharedAttributes" parent="." instance=ExtResource("5_e48id")]
+
+[node name="HealthBar" parent="." instance=ExtResource("6_fawfi")]
+offset_bottom = 0.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
