@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var spread: float = 15.0
-@export var cooldown: float = 0.15
+@export var cooldown: float = 0.2
 
 var card_scene := preload("res://src/skills/baelz/card.tscn")
 var is_pressing := false
