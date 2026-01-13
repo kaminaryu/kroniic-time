@@ -25,16 +25,18 @@ var on_main_menu = true
 
 func _input(event: InputEvent) -> void:
     if (event.is_action_pressed("pause")) :
-        if (pausing) :
-            return
+        #if (pausing) :
+            #return
         
         if (on_main_menu) :
             return
             
-        pausing = true
+        pausing = !pausing
         #change_to_scene("MainMenu")
         var pause = pause_menu_scn.instantiate()
         get_tree().root.get_node("Main/UI").add_child(pause)
+        
+        get_tree().paused = pausing
         
         
     
