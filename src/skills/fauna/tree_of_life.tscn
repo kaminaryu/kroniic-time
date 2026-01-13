@@ -70,7 +70,7 @@ _data = {
 radius = 512.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bs1ja"]
-size = Vector2(164, 20)
+size = Vector2(113.033, 14.4645)
 
 [node name="Tree Of Life" type="Area2D"]
 y_sort_enabled = true
@@ -89,7 +89,8 @@ libraries = {
 autoplay = "blessing"
 
 [node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(5, -155)
+position = Vector2(1, -108)
+scale = Vector2(2.80667, 2.80667)
 texture = ExtResource("2_bs1ja")
 
 [node name="Range" type="CollisionShape2D" parent="."]
@@ -102,6 +103,7 @@ wait_time = 30.0
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="SolidBox" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7)
 scale = Vector2(0.955475, 3.1802)
 shape = SubResource("RectangleShape2D_bs1ja")
 
