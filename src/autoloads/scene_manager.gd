@@ -2,11 +2,11 @@ extends Node
 
 var scenes: Dictionary[String, Dictionary] = {
     "Gameplay": {
-        "node": preload("res://src/main.tscn"),
+        "node": preload("res://src/scenes/main.tscn"),
         "function": run_gameplay
     },
     "MainMenu": {
-        "node": preload("res://src/main_menu.tscn"),
+        "node": preload("res://src/scenes/main_menu.tscn"),
         "function": run_menu
     }
 }
@@ -15,19 +15,39 @@ var current_scene: Node
 
 
 func _ready() -> void :
-    change_to_scene("Gameplay")
+    current_scene = get_tree().current_scene
+    
+    
+func _input(event: InputEvent) -> void:
+    if (event.is_action_pressed("pause")) :
+        change_to_scene("MainMenu")
+    
+    
 
 func change_to_scene(scene_name: String) -> void :
-    var scene: PackedScene = scenes[scene_name]["node"]
+    var scene: Node = scenes[scene_name]["node"].instantiate()
     var scene_func = scenes[scene_name]["function"]
     
+    if (current_scene) :
+        current_scene.queue_free()
+    
+    current_scene = scene
+    get_tree().root.add_child(scene)
+    
+    # Wait one frame to ensure _ready() has finished everywhere
+    await get_tree().process_frame
     scene_func.call()
     
-    
+    await get_tree().process_frame
+
     
     
 func run_gameplay() -> void :
-    pass
+    Kronii.reset()
+    PlayerAttributes.reset()
+    SkillsStatisticHandler.reset()
+    SquadHandler.reset()
+    
     
 func run_menu() -> void :
     pass

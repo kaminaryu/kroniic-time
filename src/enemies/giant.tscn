@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://d01dmecof34tt"]
 
 [ext_resource type="Script" uid="uid://ijbq6b4rw7mb" path="res://src/enemies/giant.gd" id="1_6ttcc"]
-[ext_resource type="Texture2D" uid="uid://bcqmbvxwfi4s3" path="res://assets/enemies/giant.png" id="1_x4vrb"]
+[ext_resource type="Texture2D" uid="uid://b7o7ln2i12ljn" path="res://assets/enemies/pebble.png" id="2_e48id"]
 [ext_resource type="PackedScene" uid="uid://bxnvok0thof3c" path="res://src/enemies/giant_sword.tscn" id="3_vmwgi"]
 [ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="4_cqvqt"]
 [ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="5_e48id"]
@@ -95,8 +95,9 @@ script = ExtResource("1_6ttcc")
 shape = SubResource("RectangleShape2D_6ttcc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -2)
-texture = ExtResource("1_x4vrb")
+texture = ExtResource("2_e48id")
 
 [node name="GiantSword" parent="." instance=ExtResource("3_vmwgi")]
 

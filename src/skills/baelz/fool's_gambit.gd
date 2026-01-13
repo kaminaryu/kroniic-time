@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var label = $"../Multiplier"
+
 func _ready() -> void :
     randomize()
         
@@ -10,7 +12,8 @@ func roll_d10() -> void :
         #1-5 : Debuff
         #6-20 : Buff
         var dice = randi_range(1, 20)
-        print("Baelz has thrown a nat ", dice)
+        
+        label.text = "Dice20: " + str(dice)
         
         if (dice < 6) :
             PlayerAttributes.speed_multiplier = 1 - (0.1 * (5 - dice))
@@ -23,5 +26,6 @@ func roll_d10() -> void :
         $Duration.start()
 
 func _on_duration_timeout() -> void:
+    label.text = ""
     PlayerAttributes.speed_multiplier = 1.0
     PlayerAttributes.damage_multiplier = 1.0

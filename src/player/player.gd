@@ -166,3 +166,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
         iframe = false
     
 #endregion
+
+
+func _on_knockback_timeout() -> void:
+    is_hit = false

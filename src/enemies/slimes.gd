@@ -70,8 +70,20 @@ func start_jump() -> void :
         target_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
         target_distance = randf_range(JUMP_RANGE_MIN, JUMP_RANGE_MAX)   
 
-    # scale the target pos
-    target_position = global_position + target_direction * target_distance
+    # 1. Point the RayCast towards the target
+    $RayCast2D.target_position = target_direction * target_distance
+    $RayCast2D.force_raycast_update() # Update immediately
+
+    # 2. If it hits a wall, shorten the jump
+    if $RayCast2D.is_colliding():
+        # Get the point where the ray hit the wall
+        var collision_point = $RayCast2D.get_collision_point()
+        # Move the target slightly back from the wall (e.g., 8 pixels) 
+        # so the slime doesn't get stuck inside the collider
+        var normal = $RayCast2D.get_collision_normal()
+        target_position = collision_point + (normal * 8)
+    else:
+        target_position = global_position + target_direction * target_distance
         
     # to disable the hitbox whilst on air
     $Hitbox.disabled = true
@@ -170,7 +182,7 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
     if (anim_name == "death") :
-        SkillsStatisticHandler.increase_synergy()
+        SkillsStatisticHandler.increase_energy()
         queue_free()
     if (anim_name == "flashes") :
         is_hit = false
@@ -178,3 +190,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
         $Timer.start() # resets the timer
             
 #endregion
+
+
+func _on_damaging_hitbox_body_entered(body: Node2D) -> void:
+    if (body.name == "Player") :
+        body.take_damage(self, 32, 10)
