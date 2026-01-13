@@ -138,13 +138,6 @@ grow_vertical = 0
 theme_override_constants/margin_right = 608
 theme_override_constants/margin_bottom = 32
 
-[node name="Overlay" type="TextureProgressBar" parent="SkillCircle"]
-layout_mode = 2
-step = 0.1
-value = 100.0
-fill_mode = 5
-texture_progress = ExtResource("8_8o81o")
-
 [node name="Baelz" type="TextureProgressBar" parent="SkillCircle"]
 layout_mode = 2
 step = 0.1
@@ -172,6 +165,13 @@ step = 0.1
 value = 100.0
 fill_mode = 5
 texture_under = ExtResource("12_cycyj")
+
+[node name="Overlay" type="TextureProgressBar" parent="SkillCircle"]
+layout_mode = 2
+step = 0.1
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("8_8o81o")
 
 [node name="Squad" type="MarginContainer" parent="."]
 texture_filter = 1

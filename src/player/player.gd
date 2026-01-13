@@ -71,25 +71,17 @@ func _physics_process(delta: float) -> void:
         
     var move_dir = Vector2.ZERO
     
-    var is_walking := false
-    
     if Input.is_action_pressed("move_up") :
         move_dir.y += -1
-        is_walking = true
     if Input.is_action_pressed("move_down") :
         move_dir.y += 1
-        is_walking = true
     if Input.is_action_pressed("move_left") :
         move_dir.x += -1
-        is_walking = true
     if Input.is_action_pressed("move_right") :
         move_dir.x += 1
-        is_walking = true
         
     if move_dir.length() > 0 :
         move_dir = move_dir.normalized()
-        
-    walking(is_walking)
         
     #velocity = move_dir * speed * PlayerAttributes.speed_multiplier
     move_and_slide()
@@ -119,33 +111,33 @@ func _physics_process(delta: float) -> void:
 #endregion
 
 
-func walking(is_walking: bool) :
-    if ($MemberController.get_child(1)) :
-        $MemberController.get_child(1).get_node("Idle").visible = not is_walking
-        $MemberController.get_child(1).get_node("Walking").visible = is_walking
-
-
-
 #region DAMAGE
 func take_damage(hostile_entity: Node, knockback_strength: int, damage: int) -> void :
     # iframes
     if (is_hit) :
         return
-        
+
     # knockback
     is_hit = true
     iframe = true
-    
+
     var opposite_direction := atan2(position.y - hostile_entity.position.y, position.x - hostile_entity.position.x)
-    knockback_pos = position + Vector2.RIGHT.rotated(opposite_direction) * knockback_strength
+    #knockback_pos = position + Vector2.RIGHT.rotated(opposite_direction) * knockback_strength
+    velocity = Vector2.RIGHT.rotated(opposite_direction) * knockback_strength * 5
+
+    move_and_slide()
     
+    $knockback.start()
+
     # decrease the time
     Kronii.time_left -= damage
+
+    $MemberController/AnimationPlayer.play("flashes") 
     
-    $MemberController/AnimationPlayer.play("flashes")
-    
-    
+
 func knocking_back() :
+    move_and_slide()
+    return
     position = position.lerp(knockback_pos, knockback_lerp)
     
     if (position.distance_to(knockback_pos) < 4) :

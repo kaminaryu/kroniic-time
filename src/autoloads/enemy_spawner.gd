@@ -9,7 +9,7 @@ func _ready() -> void :
     
     
 func _input(event: InputEvent) -> void :
-    if (not true) :
+    if (true) :
         return
         
     # DEBUG
