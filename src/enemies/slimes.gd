@@ -33,6 +33,11 @@ func _ready() -> void :
     
     
 func _process(delta: float) -> void :
+    $DamagingHitbox/CollisionShape2D.disabled = on_air
+    
+    print(on_air)
+    if (not $EnemiesSharedAttributes.is_on_screen) :
+        return 
     if ($EnemiesSharedAttributes.frozen) :
         return
         
@@ -44,6 +49,7 @@ func _process(delta: float) -> void :
         
     $Target.visible = is_jumping
     $Target.global_position = target_position
+    
     
     if (is_hit) :
         knocking_back()
@@ -178,3 +184,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
         $Timer.start() # resets the timer
             
 #endregion
+
+
+func _on_damaging_hitbox_body_entered(body: Node2D) -> void:
+    if (body.name == "Player") :
+        body.take_damage(self, 32, 10)

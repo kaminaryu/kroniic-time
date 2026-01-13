@@ -46,7 +46,7 @@ func _input(event: InputEvent) -> void:
             
 #region Processes
 func _process(delta: float) -> void :
-    const RADIUS = 16 + 16
+    const RADIUS = 16 + 16 + 16
     
     var hand_node := $Hand
     var mouse_pos := get_global_mouse_position()
@@ -116,21 +116,28 @@ func take_damage(hostile_entity: Node, knockback_strength: int, damage: int) -> 
     # iframes
     if (is_hit) :
         return
-        
+
     # knockback
     is_hit = true
     iframe = true
-    
+
     var opposite_direction := atan2(position.y - hostile_entity.position.y, position.x - hostile_entity.position.x)
-    knockback_pos = position + Vector2.RIGHT.rotated(opposite_direction) * knockback_strength
+    #knockback_pos = position + Vector2.RIGHT.rotated(opposite_direction) * knockback_strength
+    velocity = Vector2.RIGHT.rotated(opposite_direction) * knockback_strength * 5
+
+    move_and_slide()
     
+    $knockback.start()
+
     # decrease the time
     Kronii.time_left -= damage
+
+    $MemberController/AnimationPlayer.play("flashes") 
     
-    $MemberController/AnimationPlayer.play("flashes")
-    
-    
+
 func knocking_back() :
+    move_and_slide()
+    return
     position = position.lerp(knockback_pos, knockback_lerp)
     
     if (position.distance_to(knockback_pos) < 4) :
@@ -166,3 +173,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
         iframe = false
     
 #endregion
+
+
+func _on_knockback_timeout() -> void:
+    is_hit = false

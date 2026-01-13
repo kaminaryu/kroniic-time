@@ -28,9 +28,6 @@ func reset() -> void :
     
     
 func _process(delta: float) -> void :
-    
-    print(selected_member, "| fuck")
-    
     if Input.is_action_just_pressed("change_squad_1") :
         change_squad_member("Baelz")
     elif Input.is_action_just_pressed("change_squad_2") :
