@@ -93,7 +93,6 @@ _data = {
 radius = 27.0
 
 [node name="Slimes" type="CharacterBody2D"]
-collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_wxtys")
 
@@ -132,6 +131,9 @@ hitbox = Vector2(32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingHitbox"]
 shape = SubResource("CircleShape2D_5mtwo")
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 3
+collide_with_areas = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
