@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://mnesranwqgu2"]
+
+[ext_resource type="Script" uid="uid://dvyxuu5uvpbih" path="res://src/UI/enemy_pointer.gd" id="1_eddkb"]
+[ext_resource type="Texture2D" uid="uid://l1qtch7ugqin" path="res://assets/UI/EnemyPointer/pointer.png" id="2_bfr24"]
+
+[node name="EnemyPointer" type="Node2D"]
+z_index = 10
+script = ExtResource("1_eddkb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.294118)
+texture_filter = 1
+texture = ExtResource("2_bfr24")

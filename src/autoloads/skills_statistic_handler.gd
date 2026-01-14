@@ -126,7 +126,7 @@ func reset() -> void :
 
     ultimate_energy = {
         "Baelz": {
-            "Current": 0,
+            "Current": 50,
             "Max": 50
         },
         "Fauna": {

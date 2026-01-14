@@ -12,7 +12,7 @@ func explode() -> void :
     $Explosion.emitting = true
     
     for enemy in enemies :
-        if (not enemies) :
+        if (not enemy) :
             return
         #var player_pos = player.global_position
         #var enemy_pos  = enemy.global_position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxxmqsv7v5p5h"]
+[gd_scene load_steps=11 format=3 uid="uid://cxxmqsv7v5p5h"]
 
 [ext_resource type="PackedScene" uid="uid://btledwjve2mc5" path="res://src/dungeons/dungeon_generator.tscn" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="2_5lsyw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bj2de2c4vfo7l" path="res://src/UI/game_over.tscn" id="5_kokaf"]
 [ext_resource type="PackedScene" uid="uid://ckwwikqmiv8jg" path="res://src/spawners/big_spawner.tscn" id="6_p1ia5"]
 [ext_resource type="PackedScene" uid="uid://dnrj02npdabpo" path="res://src/level_manager.tscn" id="7_kbdt0"]
+[ext_resource type="PackedScene" uid="uid://bdiaomb4hinqw" path="res://src/UI/enemy_pointer_manager.tscn" id="10_lp058"]
 
 [node name="Main" type="Node2D"]
 
@@ -39,3 +40,5 @@ collision_mask = 3
 
 [node name="Level Manager" parent="." node_paths=PackedStringArray("dungeon_generator") instance=ExtResource("7_kbdt0")]
 dungeon_generator = NodePath("../DungeonGenerator")
+
+[node name="EnemyPointerManager" parent="." instance=ExtResource("10_lp058")]

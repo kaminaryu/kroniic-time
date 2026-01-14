@@ -136,8 +136,6 @@ func do_trans(current_level) :
     
     
 func actually_create_dungeon(current_level) :
-    #await get_tree().create_timer(0.5).timeout
-    
     var dungeon = generate_dungeon(randi_range(1, 2) + current_level)
     var player_room = place_player(dungeon)
     var slime_spawn_amount = level_manager.get_slime_spawn_amount(current_level)

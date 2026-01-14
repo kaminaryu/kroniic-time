@@ -15,8 +15,8 @@ func _ready() -> void :
 
     
 func on_timer_timeout() -> void :
-    print(time_left)
-    print(SceneManager.current_scene.name)
+    #print(time_left)
+    #print(SceneManager.current_scene.name)
     if (SceneManager.current_scene.name != "Main") :
         return
     time_left -= 1
