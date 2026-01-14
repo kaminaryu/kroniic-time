@@ -28,6 +28,9 @@ func _ready() -> void :
     
 
 func _process(delta: float) -> void :
+    $HealthBar.rotation = -rotation
+    $HealthBar.global_position = global_position + Vector2.UP * 32
+    
     if ($EnemiesSharedAttributes.frozen) :
         return
         

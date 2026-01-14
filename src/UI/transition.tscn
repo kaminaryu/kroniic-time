@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy5vvcij55mvp"]
+[gd_scene load_steps=6 format=3 uid="uid://cy5vvcij55mvp"]
+
+[ext_resource type="Script" uid="uid://dyg7fxhbvsaev" path="res://src/UI/transition.gd" id="1_vaxi7"]
 
 [sub_resource type="Animation" id="Animation_vaxi7"]
 length = 0.001
@@ -15,8 +17,25 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_diprq"]
+resource_name = "trans_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_qdu87"]
-resource_name = "transition"
+resource_name = "trans_in"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -24,25 +43,28 @@ tracks/0/path = NodePath(".:color")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vaxi7"]
 _data = {
 &"RESET": SubResource("Animation_vaxi7"),
-&"transition": SubResource("Animation_qdu87")
+&"trans_in": SubResource("Animation_qdu87"),
+&"trans_out": SubResource("Animation_diprq")
 }
 
 [node name="Transition" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vaxi7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -57,3 +79,5 @@ color = Color(0, 0, 0, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_vaxi7")
 }
+
+[connection signal="animation_finished" from="ColorRect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

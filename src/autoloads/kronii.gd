@@ -19,7 +19,7 @@ func on_timer_timeout() -> void :
     print(SceneManager.current_scene.name)
     if (SceneManager.current_scene.name != "Main") :
         return
-    time_left -= 50
+    time_left -= 1
     if (time_left <= 0) :
         SceneManager.game_over()
         return
