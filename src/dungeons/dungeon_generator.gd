@@ -125,9 +125,18 @@ func render_dungeon():
                     tilemap.set_cell(Vector2i(x, y), 2, wall_atlas_coords)
  
 func create_dungeon(current_level):
+    do_trans()
+    actually_create_dungeon(current_level)
+    
+
+func do_trans() :
+    #get_tree().paused = true
     var trans = get_tree().root.get_node("Main/UI/Transition/ColorRect/AnimationPlayer")
+    trans.process_mode = Node.PROCESS_MODE_ALWAYS
     trans.play("transition")
     
+    
+func actually_create_dungeon(current_level) :
     #await get_tree().create_timer(0.5).timeout
     
     var dungeon = generate_dungeon(randi_range(1, 2) + current_level)
@@ -225,3 +234,7 @@ func get_wall_variant(x, y) -> Vector2i:
         return Vector2i(2,2)
         
     return Vector2i(1,1)
+
+
+func _on_trans_timer_timeout() -> void:
+    pass # Replace with function body.

@@ -108,3 +108,7 @@ tilemap = NodePath("TileMapLayer")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_byfya")
+
+[node name="TransTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="TransTimer" to="." method="_on_trans_timer_timeout"]
