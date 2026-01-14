@@ -70,18 +70,33 @@ func _physics_process(delta: float) -> void:
         return
         
     var move_dir = Vector2.ZERO
+    var moving: bool = false
     
     if Input.is_action_pressed("move_up") :
         move_dir.y += -1
+        moving = true
     if Input.is_action_pressed("move_down") :
         move_dir.y += 1
+        moving = true
     if Input.is_action_pressed("move_left") :
         move_dir.x += -1
+        moving = true
     if Input.is_action_pressed("move_right") :
         move_dir.x += 1
+        moving = true
         
     if move_dir.length() > 0 :
         move_dir = move_dir.normalized()
+        
+    
+    # animated sprite ass
+    if (moving) :
+        $MemberController.get_child(1).get_node("Idle").visible = false
+        $MemberController.get_child(1).get_node("Walking").visible = true
+    else :
+        $MemberController.get_child(1).get_node("Idle").visible = true
+        $MemberController.get_child(1).get_node("Walking").visible = false
+        
         
     #velocity = move_dir * speed * PlayerAttributes.speed_multiplier
     move_and_slide()
