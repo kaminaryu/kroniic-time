@@ -39,7 +39,12 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
     if (body) :
+        if (body.is_in_group("Slimes")) :
+            if (global_position.distance_to(body.global_position) < $Range.shape.radius) :
+                print("slime still in range, just jumping")
+                return
         if (body.is_in_group("Enemies")) :
+            print("Enemy ran away")
             enemies.erase(body)
 
 
