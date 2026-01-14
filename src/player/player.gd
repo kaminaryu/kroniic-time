@@ -153,10 +153,10 @@ func take_damage(hostile_entity: Node, knockback_strength: int, damage: int) -> 
 func knocking_back() :
     move_and_slide()
     return
-    position = position.lerp(knockback_pos, knockback_lerp)
-    
-    if (position.distance_to(knockback_pos) < 4) :
-        is_hit = false
+    #position = position.lerp(knockback_pos, knockback_lerp)
+    #
+    #if (position.distance_to(knockback_pos) < 4) :
+        #is_hit = false
     
 #endregion
     

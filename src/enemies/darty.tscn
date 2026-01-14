@@ -138,6 +138,8 @@ _data = {
 size = Vector2(16, 28)
 
 [node name="Darty" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_xsgw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -171,7 +173,10 @@ hitbox = Vector2(64, 12)
 [node name="HealthBar" parent="." instance=ExtResource("5_ue66k")]
 offset_bottom = 0.0
 
+[node name="knockback" type="Timer" parent="."]
+
 [connection signal="timeout" from="Charging" to="." method="_on_charging_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DamagingHitbox" to="." method="_on_damaging_hitbox_body_entered"]
+[connection signal="timeout" from="knockback" to="." method="_on_knockback_timeout"]

@@ -153,15 +153,18 @@ func take_damage(hitter_node: Node, knockback: int, damage: float) -> void :
 func knock_back(hitter_node: Node, knockback: int) -> void :
     var opposite_direction := atan2(global_position.y - hitter_node.global_position.y, global_position.x - hitter_node.global_position.x)
     var variable_knockback := knockback + randf_range(-8, 8)
-    knockback_pos = position + variable_knockback * Vector2.RIGHT.rotated(opposite_direction)
+    velocity = variable_knockback * Vector2.RIGHT.rotated(opposite_direction) * 5
     
     is_hit = true
+    $knockback.start()
     $AnimationPlayer.play("flashes")
 
     
 # knock back animation
 func knocking_back() -> void :
-    position = position.lerp(knockback_pos, knockback_lerp)
+    move_and_slide()
+    return
+    #position = position.lerp(knockback_pos, knockback_lerp)
     
     #if (position.distance_to(knockback_pos) < 4) :
         #is_hit = false
@@ -198,3 +201,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_damaging_hitbox_body_entered(body: Node2D) -> void:
     if (body.name == "Player") :
         body.take_damage(self, 32, 10)
+
+
+func _on_knockback_timeout() -> void:
+    is_hit = false
