@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cacujn1fymrst"]
+[gd_scene load_steps=22 format=3 uid="uid://cacujn1fymrst"]
 
-[ext_resource type="Texture2D" uid="uid://0u5b6u4w1rfu" path="res://assets/enemies/slime.png" id="1_bi7ni"]
 [ext_resource type="Script" uid="uid://ubf8ej16x56y" path="res://src/enemies/slimes.gd" id="1_wxtys"]
 [ext_resource type="Texture2D" uid="uid://dbnahn7owiro" path="res://assets/temporary/target-marker.png" id="3_hlhrs"]
+[ext_resource type="Texture2D" uid="uid://cipodhu7j176j" path="res://assets/enemies/slimespraito/slime_idle.png" id="3_kgnhj"]
 [ext_resource type="PackedScene" uid="uid://dkkeb0klx0jii" path="res://src/enemies/damage_hitbox.tscn" id="4_i7y8y"]
+[ext_resource type="Texture2D" uid="uid://cnqgxjvhbgvpo" path="res://assets/enemies/slimespraito/slime_jump.png" id="4_q5v3d"]
 [ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="5_5mtwo"]
 [ext_resource type="PackedScene" uid="uid://fcdw0b37ysvr" path="res://src/UI/enemy/health_bar.tscn" id="6_kgnhj"]
 
@@ -90,6 +91,56 @@ _data = {
 &"flashes": SubResource("Animation_5mtwo")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhmo3"]
+atlas = ExtResource("4_q5v3d")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58hdy"]
+atlas = ExtResource("4_q5v3d")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32pmw"]
+atlas = ExtResource("4_q5v3d")
+region = Rect2(64, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72yjp"]
+atlas = ExtResource("4_q5v3d")
+region = Rect2(96, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ebfs"]
+atlas = ExtResource("4_q5v3d")
+region = Rect2(128, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqytb"]
+atlas = ExtResource("4_q5v3d")
+region = Rect2(160, 0, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kgnhj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhmo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58hdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32pmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72yjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ebfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqytb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mtwo"]
 radius = 27.0
 
@@ -121,7 +172,19 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_bi7ni")
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+texture = ExtResource("3_kgnhj")
+
+[node name="Jumping" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kgnhj")
+autoplay = "default"
+frame = 4
+frame_progress = 0.211816
 
 [node name="DamageHitbox" parent="." instance=ExtResource("4_i7y8y")]
 hitbox = Vector2(32, 32)

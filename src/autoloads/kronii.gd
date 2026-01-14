@@ -15,10 +15,15 @@ func _ready() -> void :
 
     
 func on_timer_timeout() -> void :
-    time_left -= 1
+    print(time_left)
+    print(SceneManager.current_scene.name)
+    if (SceneManager.current_scene.name != "Main") :
+        return
+    time_left -= 50
     if (time_left <= 0) :
-        get_tree().quit()
-    
+        SceneManager.game_over()
+        return
+            
     timer.start()
 
 

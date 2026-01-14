@@ -28,8 +28,6 @@ func _ready() -> void :
     add_to_group("Slimes")
     add_to_group("Enemies")
     
-
-    
     $Timer.wait_time = randf_range(JUMP_DELAY, JUMP_DELAY + .5)
     $Timer.start()
     
@@ -93,6 +91,8 @@ func start_jump() -> void :
     is_jumping = true
     on_air = true
     
+    $Jumping.visible = true
+    
     # for calculating the jump "height"
     start_end_mid_point = Vector2( (position.x + target_position.x) / 2, (position.y + target_position.y) / 2 )
     start_distance_to_mid_point = global_position.distance_to(start_end_mid_point)
@@ -104,6 +104,7 @@ func stop_jump() -> void :
     
     scale = Vector2.ONE
     
+    $Jumping.visible = false
     $Hitbox.disabled = false
         
     $Timer.wait_time = randf_range(JUMP_DELAY, JUMP_DELAY + 1.5)

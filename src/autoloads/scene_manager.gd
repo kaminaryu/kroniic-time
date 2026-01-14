@@ -39,7 +39,11 @@ func _input(event: InputEvent) -> void:
         get_tree().paused = pausing
         
         
+func game_over() -> void :
+    var game_over_ui: = get_tree().root.get_node("Main/UI/GameOver")
     
+    get_tree().paused = true
+    game_over_ui.run()
     
 
 func change_to_scene(scene_name: String) -> void :
