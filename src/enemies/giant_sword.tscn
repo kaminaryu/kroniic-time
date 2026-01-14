@@ -121,7 +121,7 @@ script = ExtResource("1_issrx")
 
 [node name="SlashSprites" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 0, 0.34902, 1)
+self_modulate = Color(1, 0.2, 0.973333, 1)
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(1, 0)
