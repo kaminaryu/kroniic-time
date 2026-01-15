@@ -23,6 +23,7 @@ PlayerAttributes="*res://src/autoloads/player_attributes.gd"
 EnemySpawner="*res://src/autoloads/enemy_spawner.gd"
 SkillsStatisticHandler="*res://src/autoloads/skills_statistic_handler.gd"
 SceneManager="*res://src/autoloads/scene_manager.gd"
+MusicPlayer="*res://src/autoloads/music_player.gd"
 
 [display]
 

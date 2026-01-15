@@ -45,6 +45,9 @@ var current_scene: Node
 func _ready() -> void :
     current_scene = get_tree().current_scene
     
+    if (current_scene.name == "MainMenu") :
+        run_menu()
+    
 
 var pause_menu_scn = preload("res://src/UI/pause_menu.tscn")
 var pausing = false
@@ -70,6 +73,7 @@ func _input(event: InputEvent) -> void:
 func game_over() -> void :
     var game_over_ui: = get_tree().root.get_node("Main/UI/GameOver")
     
+    #MusicPlayer.play_music("")
     get_tree().paused = true
     game_over_ui.run()
     
@@ -103,10 +107,11 @@ func run_gameplay() -> void :
     PlayerAttributes.reset()
     SkillsStatisticHandler.reset()
     SquadHandler.reset()
+    MusicPlayer.play_music("Gameplay")
     
     
 func run_menu() -> void :
-    pass
+    MusicPlayer.play_music("MainMenu")
     
 func run_tuto() -> void:
     pass

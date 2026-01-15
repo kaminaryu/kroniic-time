@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnwu6corgro75"]
+[gd_scene load_steps=8 format=3 uid="uid://dnwu6corgro75"]
 
 [ext_resource type="Script" uid="uid://cmib84fv43nxv" path="res://src/scenes/main_menu.gd" id="1_iaawh"]
 [ext_resource type="Texture2D" uid="uid://bvaudvb2k858k" path="res://assets/UI/MainMenu/bg.png" id="2_kp3xf"]
 [ext_resource type="Texture2D" uid="uid://1n507v3edxnq" path="res://assets/UI/MainMenu/title_card.png" id="3_chlrs"]
 [ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="4_yrdre"]
-[ext_resource type="AudioStream" uid="uid://dcv1d55jyijyc" path="res://audios/musics/Water Level Music __️ - Sunken Heart City.mp3" id="5_kp3xf"]
 
 [sub_resource type="Animation" id="Animation_kp3xf"]
 length = 0.001
@@ -125,12 +124,6 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_yrdre")
 text = "Quit"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_kp3xf")
-volume_db = 5.0
-autoplay = true
-stream_paused = true
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
