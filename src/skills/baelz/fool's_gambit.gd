@@ -16,16 +16,16 @@ func roll_d10() -> void :
         label.text = "Dice20: " + str(dice)
         
         if (dice < 6) :
-            PlayerAttributes.speed_multiplier = 1 - (0.1 * (5 - dice))
-            PlayerAttributes.damage_multiplier = 1 - (0.1 * (5 - dice))
+            PlayerAttributes.change_attribute("Speed", 1 - (0.1 * (5 - dice)), 5)
+            PlayerAttributes.change_attribute("Damage", 1 - (0.1 * (5 - dice)), 5)
         else :
-            PlayerAttributes.speed_multiplier = 1 + (0.1 * dice)
-            PlayerAttributes.damage_multiplier = 1 + (0.1 * dice)
+            PlayerAttributes.change_attribute("Speed", 1 + (0.1 * dice), 5)
+            PlayerAttributes.change_attribute("Damage", 1 + (0.1 * dice), 5)
             
         
         $Duration.start()
 
 func _on_duration_timeout() -> void:
     label.text = ""
-    PlayerAttributes.speed_multiplier = 1.0
-    PlayerAttributes.damage_multiplier = 1.0
+    #PlayerAttributes.speed_multiplier = 1.0
+    #PlayerAttributes.damage_multiplier = 1.0

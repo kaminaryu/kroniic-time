@@ -98,7 +98,7 @@ scale = Vector2(1, 0.25)
 shape = SubResource("CircleShape2D_ceiy3")
 
 [node name="Lifespan" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 5.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
