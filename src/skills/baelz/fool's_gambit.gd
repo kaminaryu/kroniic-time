@@ -7,6 +7,7 @@ func _ready() -> void :
         
 func run() -> void :
     roll_d10()
+    $AudioStreamPlayer2D.playing = true
         
 func roll_d10() -> void :
         #1-5 : Debuff

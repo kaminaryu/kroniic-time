@@ -13,6 +13,7 @@ func start_attacking() -> void :
     
     timer_started = true
     $Timer.start()
+    $AudioStreamPlayer2D.playing = true
     
 func stop_attacking() -> void :
     timer_started = false

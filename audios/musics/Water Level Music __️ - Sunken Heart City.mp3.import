@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcv1d55jyijyc"
+path="res://.godot/imported/Water Level Music __️ - Sunken Heart City.mp3-c070275965b9ce89bafccf9fd33b6794.mp3str"
+
+[deps]
+
+source_file="res://audios/musics/Water Level Music __️ - Sunken Heart City.mp3"
+dest_files=["res://.godot/imported/Water Level Music __️ - Sunken Heart City.mp3-c070275965b9ce89bafccf9fd33b6794.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

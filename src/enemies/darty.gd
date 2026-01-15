@@ -154,6 +154,7 @@ func knocking_back() -> void :
 #region SIGNALS
 func _on_charging_timeout() -> void:
     is_dashing = true
+    $AudioStreamPlayer2D.playing = true
     
 func _on_cooldown_timeout() -> void :
     cooling_down = false

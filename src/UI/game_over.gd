@@ -14,6 +14,7 @@ func _input(event: InputEvent) -> void :
 func run() -> void :
     $AnimationPlayer.play("fade_in")
     visible = true
+    $AudioStreamPlayer2D.playing = true
 
 
 func return_to_main() -> void :

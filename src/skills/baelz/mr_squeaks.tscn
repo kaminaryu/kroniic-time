@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dflth23re3cur"]
+[gd_scene load_steps=13 format=3 uid="uid://dflth23re3cur"]
 
 [ext_resource type="Script" uid="uid://b17j3m7ll5ph7" path="res://src/skills/baelz/mr_squeaks.gd" id="1_guwgo"]
 [ext_resource type="Texture2D" uid="uid://cmduvq131cx6w" path="res://assets/Skills/Baelz/MrSueaks.png" id="2_seciw"]
+[ext_resource type="AudioStream" uid="uid://bnjhfe21jyjdp" path="res://audios/SFX/baelzUtlFInal.wav" id="3_seciw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8or3y"]
 radius = 96.0
@@ -162,6 +163,11 @@ scale_amount_max = 10.0
 scale_amount_curve = SubResource("Curve_guwgo")
 color = Color(1, 0, 0, 1)
 color_ramp = SubResource("Gradient_seciw")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_seciw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

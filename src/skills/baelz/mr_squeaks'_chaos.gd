@@ -24,6 +24,7 @@ func run() -> void :
 
         
 func spawn_mr_s() -> void :
+    $AudioStreamPlayer2D.playing = true
     var mr_s = mr_s_scene.instantiate()
     var rand_dir = randf_range(0, TAU)
     

@@ -17,6 +17,7 @@ func _input(event: InputEvent) -> void :
         
     if (event.button_index == MOUSE_BUTTON_LEFT) :
         is_pressing = event.pressed
+        $AudioStreamPlayer2D.playing = true
             
     
 func _process(delta: float) -> void :

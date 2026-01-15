@@ -24,6 +24,7 @@ func explode() -> void:
     $Explosion.emitting = true
     $DeathTimer.start()
     $Sprite2D.visible = false
+    $AudioStreamPlayer2D.playing = true
         
     
     

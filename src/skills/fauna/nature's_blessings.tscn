@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://beu3amxdc4bhb"]
+[gd_scene load_steps=3 format=3 uid="uid://beu3amxdc4bhb"]
 
 [ext_resource type="Script" uid="uid://62dgogso4yb2" path="res://src/skills/fauna/nature's_blessings.gd" id="1_s1trh"]
+[ext_resource type="AudioStream" uid="uid://c34ntqcem1cnb" path="res://audios/SFX/falling-tree-356127.mp3" id="2_uu8t6"]
 
 [node name="Nature\'s Blessings" type="Node2D"]
 script = ExtResource("1_s1trh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uu8t6")
+volume_db = -2.5

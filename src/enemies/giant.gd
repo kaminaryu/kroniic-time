@@ -50,6 +50,9 @@ func _physics_process(delta: float) -> void :
         velocity = Vector2.RIGHT.rotated(direction) * speed
         
         move_and_slide()
+        
+        if (not $AudioStreamPlayer2D.playing) :
+            $AudioStreamPlayer2D.playing = true
 
 
 

@@ -19,6 +19,7 @@ func _input(event: InputEvent) -> void :
             #$SlashAnimation.visible = true;
             $AnimationPlayer.play("slashing")
             $DamageHitbox.disabled = false
+            $AudioStreamPlayer2D.playing = true
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

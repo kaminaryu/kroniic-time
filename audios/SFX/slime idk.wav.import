@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2pq5l5bhhkrx"
+path="res://.godot/imported/slime idk.wav-3c2b1652c8d297de9b67225703797181.sample"
+
+[deps]
+
+source_file="res://audios/SFX/slime idk.wav"
+dest_files=["res://.godot/imported/slime idk.wav-3c2b1652c8d297de9b67225703797181.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

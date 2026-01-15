@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cacujn1fymrst"]
+[gd_scene load_steps=23 format=3 uid="uid://cacujn1fymrst"]
 
 [ext_resource type="Script" uid="uid://ubf8ej16x56y" path="res://src/enemies/slimes.gd" id="1_wxtys"]
 [ext_resource type="Texture2D" uid="uid://dbnahn7owiro" path="res://assets/temporary/target-marker.png" id="3_hlhrs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cnqgxjvhbgvpo" path="res://assets/enemies/slimespraito/slime_jump.png" id="4_q5v3d"]
 [ext_resource type="PackedScene" uid="uid://df6tj5jeaeiwj" path="res://src/enemies/enemies_shared_attributes.tscn" id="5_5mtwo"]
 [ext_resource type="PackedScene" uid="uid://fcdw0b37ysvr" path="res://src/UI/enemy/health_bar.tscn" id="6_kgnhj"]
+[ext_resource type="AudioStream" uid="uid://2pq5l5bhhkrx" path="res://audios/SFX/slime idk.wav" id="8_fhmo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi7ni"]
 size = Vector2(32, 32)
@@ -205,6 +206,10 @@ offset_right = 32.0
 
 [node name="knockback" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fhmo3")
+volume_db = -2.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

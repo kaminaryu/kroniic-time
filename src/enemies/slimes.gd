@@ -53,6 +53,7 @@ func _process(delta: float) -> void :
 #region JUMPING MECHANICS
 # get the jump angle and jump length
 func start_jump() -> void :
+    $AudioStreamPlayer2D.playing = true
     var target_direction: Vector2
     var target_distance: int
     
