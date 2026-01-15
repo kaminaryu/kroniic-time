@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://brhygsm2kf264"]
+[gd_scene load_steps=8 format=3 uid="uid://brhygsm2kf264"]
 
 [ext_resource type="Script" uid="uid://cbmr3xp11mttl" path="res://src/player/player.gd" id="1_rxibo"]
 [ext_resource type="Texture2D" uid="uid://bsyo8u48khuib" path="res://assets/temporary/hand.png" id="3_244u8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_244u8"]
 size = Vector2(32, 48)
+
+[sub_resource type="Curve" id="Curve_rxibo"]
+_data = [Vector2(0, 0.662875), 0.0, 0.0, 0, 0, Vector2(0.0952381, 1), 0.0, 0.0, 0, 0, Vector2(0.666667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Animation" id="Animation_5f2sf"]
 length = 0.001
@@ -58,11 +62,16 @@ explosiveness = 1.0
 randomness = 1.0
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 150.0
+initial_velocity_min = 154.03
+initial_velocity_max = 203.8
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+damping_min = 83.158
+damping_max = 100.0
 angle_max = 360.0
 scale_amount_min = 2.0
 scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_rxibo")
 
 [node name="Hand" type="Node2D" parent="."]
 

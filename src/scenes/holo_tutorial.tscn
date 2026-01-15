@@ -1,0 +1,262 @@
+[gd_scene load_steps=6 format=3 uid="uid://db1srakfuunh2"]
+
+[ext_resource type="Texture2D" uid="uid://bvaudvb2k858k" path="res://assets/UI/MainMenu/bg.png" id="1_1r507"]
+[ext_resource type="Script" uid="uid://dv1ycfptv0rjc" path="res://src/scenes/holo_tutorial.gd" id="1_jjdit"]
+[ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="2_ria48"]
+[ext_resource type="Texture2D" uid="uid://cts3kchig5bny" path="res://assets/holo_council/idle/mumei_idle.png" id="3_r83jr"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_r83jr"]
+color = Color(1, 1, 1, 1)
+thickness = 5
+
+[node name="HoloTutorial" type="Node2D"]
+script = ExtResource("1_jjdit")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1r507")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ria48")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 61
+text = "HoloCouncil"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Names" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Councils" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Councils"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Members"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Councils/Label"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_r83jr")
+
+[node name="Baelz" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Councils"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Baelz"
+horizontal_alignment = 1
+
+[node name="Fauna" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Councils"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Fauna"
+horizontal_alignment = 1
+
+[node name="Mumei" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Councils"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Mumei"
+horizontal_alignment = 1
+
+[node name="Sana" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Councils"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "Sana"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_r83jr")
+
+[node name="BaseAttack" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/BaseAttack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Basic Attack"
+horizontal_alignment = 1
+
+[node name="Baelz" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/BaseAttack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Throw cards randomly in a direction."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Fauna" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/BaseAttack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Shoots out razor sharp leaves."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Mumei" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/BaseAttack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "She uses her dagger to deal damage."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Sana" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/BaseAttack"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "She throws a cosmic punch to anyone in her way."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Skill" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Skill
+"
+horizontal_alignment = 1
+
+[node name="Baelz" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Rolls a D20.
+1-4 is will get debuff.
+6-20 will get buff."
+horizontal_alignment = 1
+
+[node name="Fauna" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Summons a peashooter to fight for her."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Mumei" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Eat a berry to gain personal buff."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Sana" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Skill"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Repells enemy that are close to her."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Ult" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Ult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Ultimate"
+horizontal_alignment = 1
+
+[node name="Baelz" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Ult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Throws multiple Mr Squeaks in random directions around her."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Fauna" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Ult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Summons the Tree of Life to give buffs to anyone nearby."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Mumei" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Ult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Kills any on-screen enemy that have lived for far too long."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Sana" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/PanelContainer/Names/Ult"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 22
+text = "Summons a black hole that sucks in enemies."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Return" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Return"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]

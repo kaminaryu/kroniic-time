@@ -8,6 +8,34 @@ var scenes: Dictionary[String, Dictionary] = {
     "MainMenu": {
         "node": preload("res://src/scenes/main_menu.tscn"),
         "function": run_menu
+    },
+    "Tutorial": {
+        "node": preload("res://src/scenes/TutorialPage.tscn"),
+        'function': run_tuto
+    },
+    "CharactersTutorial": {
+        "node": preload("res://src/scenes/character_tutorial.tscn"),
+        "function": run_char_tuto  
+    },
+    "Lore": {
+        "node": preload("res://src/scenes/lore_tutorial.tscn"),
+        "function": run_lore_tuto  
+    },
+    "ControlTutorial": {
+        "node": preload("res://src/scenes/control_tutorial.tscn"),
+        "function": run_ctrl_tuto  
+    },
+    "HoloCouncilTutorial": {
+        "node": preload("res://src/scenes/holo_tutorial.tscn"),
+        "function": run_holo_tuto  
+    },
+    "EnemiesTutorial": {
+        "node": preload("res://src/scenes/enemies_tutorial.tscn"),
+        "function": run_enem_tuto  
+    },
+    "Credits": {
+        "node": preload("res://src/scenes/credits.tscn"),
+        "function": run_enem_tuto  
     }
 }
 
@@ -28,7 +56,7 @@ func _input(event: InputEvent) -> void:
         #if (pausing) :
             #return
         
-        if (on_main_menu) :
+        if (current_scene.name != "Main") :
             return
             
         pausing = !pausing
@@ -78,4 +106,22 @@ func run_gameplay() -> void :
     
     
 func run_menu() -> void :
+    pass
+    
+func run_tuto() -> void:
+    pass
+
+func run_char_tuto() -> void:
+    pass
+    
+func run_lore_tuto() -> void:
+    pass
+    
+func run_ctrl_tuto() -> void:
+    pass
+
+func run_holo_tuto() -> void:
+    pass
+    
+func run_enem_tuto() -> void:
     pass

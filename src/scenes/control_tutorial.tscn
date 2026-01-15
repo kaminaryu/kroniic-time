@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt03jusowsi8h"]
+
+[ext_resource type="Script" uid="uid://cyce4l55mffj2" path="res://src/scenes/control_tutorial.gd" id="1_ppt6j"]
+[ext_resource type="Texture2D" uid="uid://bvaudvb2k858k" path="res://assets/UI/MainMenu/bg.png" id="1_t14oc"]
+[ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="2_rb2q3"]
+
+[node name="ControlTutorial" type="Node2D"]
+script = ExtResource("1_ppt6j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t14oc")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rb2q3")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_rb2q3")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_rb2q3")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Control Tutorial (TBD)"
+horizontal_alignment = 1
+
+[node name="GoBack" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Go Back"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/GoBack" to="." method="_on_go_back_pressed"]

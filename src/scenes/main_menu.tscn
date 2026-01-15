@@ -1,11 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnwu6corgro75"]
+[gd_scene load_steps=8 format=3 uid="uid://dnwu6corgro75"]
 
 [ext_resource type="Script" uid="uid://cmib84fv43nxv" path="res://src/scenes/main_menu.gd" id="1_iaawh"]
 [ext_resource type="Texture2D" uid="uid://bvaudvb2k858k" path="res://assets/UI/MainMenu/bg.png" id="2_kp3xf"]
 [ext_resource type="Texture2D" uid="uid://1n507v3edxnq" path="res://assets/UI/MainMenu/title_card.png" id="3_chlrs"]
 [ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="4_yrdre"]
 
+[sub_resource type="Animation" id="Animation_iaawh"]
+resource_name = "zokusei_ahh"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 8), Vector2(0, 0), Vector2(0, -8), Vector2(0, 0), Vector2(0, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_kp3xf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chlrs"]
+_data = {
+&"RESET": SubResource("Animation_kp3xf"),
+&"zokusei_ahh": SubResource("Animation_iaawh")
+}
+
 [node name="MainMenu" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_iaawh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -22,10 +61,18 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_kp3xf")
 
-[node name="TitleCard" type="TextureRect" parent="CanvasLayer/MarginContainer"]
+[node name="TitleCard" type="TextureRect" parent="CanvasLayer"]
 texture_filter = 1
-layout_mode = 2
+offset_top = 5.06496
+offset_right = 1280.0
+offset_bottom = 725.065
 texture = ExtResource("3_chlrs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TitleCard"]
+libraries = {
+&"": SubResource("AnimationLibrary_chlrs")
+}
+autoplay = "zokusei_ahh"
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -52,6 +99,7 @@ theme = ExtResource("4_yrdre")
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("4_yrdre")
+theme_override_constants/separation = 5
 
 [node name="Play" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
@@ -59,18 +107,17 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("4_yrdre")
 text = "Play"
 
+[node name="Tutorial" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("4_yrdre")
+text = "Tutorial"
+
 [node name="Options" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_yrdre")
-text = "Options"
-
-[node name="Credits" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("4_yrdre")
-text = "Credits
-"
+text = "Credits"
 
 [node name="Quit" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
@@ -79,4 +126,6 @@ theme = ExtResource("4_yrdre")
 text = "Quit"
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

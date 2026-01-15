@@ -1,0 +1,165 @@
+[gd_scene load_steps=7 format=3 uid="uid://but28sixhvljh"]
+
+[ext_resource type="Script" uid="uid://c3echbc8vnbyw" path="res://src/scenes/tutorial_page.gd" id="1_7o0u3"]
+[ext_resource type="Texture2D" uid="uid://bvaudvb2k858k" path="res://assets/UI/MainMenu/bg.png" id="1_mou5i"]
+[ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="2_7o0u3"]
+[ext_resource type="Texture2D" uid="uid://dlps8otui8f16" path="res://assets/UI/tutorialpage/control.png" id="4_gteoe"]
+[ext_resource type="Texture2D" uid="uid://bi0tak8edxk6n" path="res://assets/UI/tutorialpage/character.png" id="5_d6hi1"]
+[ext_resource type="Texture2D" uid="uid://biwqa0kpjs6x1" path="res://assets/UI/Kronii/KroniiFull.png" id="6_kb181"]
+
+[node name="TutorialPage" type="Node2D"]
+script = ExtResource("1_7o0u3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_mou5i")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7o0u3")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_7o0u3")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_7o0u3")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "How to Play"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="FirstTuto" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FirstTuto"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 353.0
+offset_bottom = 457.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FirstTuto/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FirstTuto/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_gteoe")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FirstTuto/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "CONTROL TUTORIAL
+
+Learn what buttons to press in here!"
+horizontal_alignment = 1
+
+[node name="SecondTuto" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondTuto"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 353.0
+offset_bottom = 457.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondTuto/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondTuto/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_d6hi1")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondTuto/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "CHARACTER DESCRIPTIONS
+
+Learn each members' skills and abilities."
+horizontal_alignment = 1
+
+[node name="ThirdTuto" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ThirdTuto"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 354.0
+offset_bottom = 457.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ThirdTuto/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ThirdTuto/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_kb181")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ThirdTuto/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "THE  LORE.
+
+For the book worms. (It's barebone atm, sorry :< )"
+horizontal_alignment = 1
+
+[node name="GoBack" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Ok, thank you!"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/FirstTuto" to="." method="_on_first_tuto_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondTuto" to="." method="_on_second_tuto_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ThirdTuto" to="." method="_on_third_tuto_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/GoBack" to="." method="_on_go_back_pressed"]

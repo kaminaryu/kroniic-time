@@ -21,6 +21,8 @@ func update_ultbar() -> void :
     
     $UltBar/TextureProgressBar.max_value = max_value
     $UltBar/TextureProgressBar.value = value
+    if value >= max_value:  $UltBar/Flashing.visible = true
+    else:  $UltBar/Flashing.visible = false
 
 func update_squad_circles() -> void :
     $Squad/HBoxContainer/Baelz.max_value = SkillsStatisticHandler.ultimate_energy["Baelz"]["Max"]

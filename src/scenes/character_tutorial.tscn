@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=3 uid="uid://clrwfg3h4g55o"]
+
+[ext_resource type="Texture2D" uid="uid://bvaudvb2k858k" path="res://assets/UI/MainMenu/bg.png" id="1_a6hfp"]
+[ext_resource type="Script" uid="uid://rbfde3k2tkfy" path="res://src/scenes/character_tutorial.gd" id="1_ngaks"]
+[ext_resource type="Theme" uid="uid://de66saidilhpx" path="res://assets/UI/ui_theme.tres" id="2_vrorq"]
+[ext_resource type="Texture2D" uid="uid://bjjeqpc8f6r13" path="res://assets/UI/tutorialpage/council.png" id="4_vv6nb"]
+[ext_resource type="Texture2D" uid="uid://ckpi8shc8eglo" path="res://assets/UI/tutorialpage/enemies.png" id="5_d2vwn"]
+
+[node name="CharacterTutorial" type="Node2D"]
+script = ExtResource("1_ngaks")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a6hfp")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_vrorq")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_vrorq")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("2_vrorq")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Character Tutorial"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="HoloCouncil" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HoloCouncil"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HoloCouncil/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HoloCouncil/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_vv6nb")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HoloCouncil/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "HOLO COUNCILS
+
+These are the friendly characters that will assist you in the battle!"
+horizontal_alignment = 1
+
+[node name="Enemies" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Enemies"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Enemies/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Enemies/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_d2vwn")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Enemies/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "THE ENEMIES
+
+They are hostile and will attack you. Kill them to gain extra time-power for Kronii!"
+horizontal_alignment = 1
+
+[node name="GoBack" type="Button" parent="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Go Back"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HoloCouncil" to="." method="_on_holo_council_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Enemies" to="." method="_on_enemies_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/GoBack" to="." method="_on_go_back_pressed"]

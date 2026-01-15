@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxxmqsv7v5p5h"]
+[gd_scene load_steps=13 format=3 uid="uid://cxxmqsv7v5p5h"]
 
 [ext_resource type="PackedScene" uid="uid://btledwjve2mc5" path="res://src/dungeons/dungeon_generator.tscn" id="1_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="2_5lsyw"]
@@ -7,9 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://b70extb05pjm0" path="res://src/spawners/slime_spawner.tscn" id="4_lp058"]
 [ext_resource type="PackedScene" uid="uid://jefuol60435i" path="res://src/spawners/darty_spawner.tscn" id="5_24j03"]
 [ext_resource type="PackedScene" uid="uid://bj2de2c4vfo7l" path="res://src/UI/game_over.tscn" id="5_kokaf"]
+[ext_resource type="Shader" uid="uid://b3cfaa2j0oeof" path="res://src/scenes/vignette.gdshader" id="6_24j03"]
 [ext_resource type="PackedScene" uid="uid://ckwwikqmiv8jg" path="res://src/spawners/big_spawner.tscn" id="6_p1ia5"]
 [ext_resource type="PackedScene" uid="uid://dnrj02npdabpo" path="res://src/level_manager.tscn" id="7_kbdt0"]
 [ext_resource type="PackedScene" uid="uid://bdiaomb4hinqw" path="res://src/UI/enemy_pointer_manager.tscn" id="10_lp058"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1ia5"]
+shader = ExtResource("6_24j03")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.5
 
 [node name="Main" type="Node2D"]
 
@@ -25,6 +32,14 @@ position = Vector2(398, 243)
 collision_mask = 3
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_p1ia5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Gameplay UI" parent="UI" instance=ExtResource("3_kokaf")]
 
