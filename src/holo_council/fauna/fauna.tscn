@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8a0un21cmtkc" path="res://src/skills/fauna/sapling_turret.tscn" id="5_4urdc"]
 [ext_resource type="Texture2D" uid="uid://ddvglj1355s3x" path="res://assets/holo_council/idle/fauna_idle.png" id="6_ipg1i"]
 [ext_resource type="PackedScene" uid="uid://beu3amxdc4bhb" path="res://src/skills/fauna/nature's_blessings.tscn" id="6_mkuws"]
-[ext_resource type="Texture2D" uid="uid://c38oa1hl41bck" path="res://assets/holo_council/walking/character_walk/faua_walk.png" id="8_5y5e7"]
+[ext_resource type="Texture2D" uid="uid://c38oa1hl41bck" path="res://assets/holo_council/walking/faua_walk.png" id="8_5y5e7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mkuws"]
 atlas = ExtResource("6_ipg1i")

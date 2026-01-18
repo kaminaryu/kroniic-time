@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyrs5l606f8e6"
-path="res://.godot/imported/mumei_walk.png-ab8340cb9bed05d16c16a45e2accc58c.ctex"
+path="res://.godot/imported/mumei_walk.png-f561cc62159e6ffbf87923342f8fba48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/walking/character_walk/mumei_walk.png"
-dest_files=["res://.godot/imported/mumei_walk.png-ab8340cb9bed05d16c16a45e2accc58c.ctex"]
+source_file="res://assets/holo_council/walking/mumei_walk.png"
+dest_files=["res://.godot/imported/mumei_walk.png-f561cc62159e6ffbf87923342f8fba48.ctex"]
 
 [params]
 

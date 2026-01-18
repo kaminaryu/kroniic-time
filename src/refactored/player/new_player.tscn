@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://duxkkhbbetvq"]
+
+[ext_resource type="PackedScene" uid="uid://c1fh8gj04me73" path="res://src/refactored/player/new_member_controller.tscn" id="1_otd03"]
+[ext_resource type="Script" uid="uid://cwdmgv80k31af" path="res://src/refactored/player/new_player.gd" id="1_v4y6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v486b"]
+size = Vector2(32, 32)
+
+[node name="NewPlayer" type="CharacterBody2D"]
+script = ExtResource("1_v4y6a")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_v486b")
+
+[node name="NewMemberController" parent="." instance=ExtResource("1_otd03")]

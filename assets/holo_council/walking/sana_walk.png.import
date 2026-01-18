@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c38oa1hl41bck"
-path="res://.godot/imported/faua_walk.png-76a1dc0b9dc80d0fd7db5447a8b1471e.ctex"
+uid="uid://db800yrn7pbcc"
+path="res://.godot/imported/sana_walk.png-35e3ff6863fdd651680c0dbd7bd42323.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/walking/character_walk/faua_walk.png"
-dest_files=["res://.godot/imported/faua_walk.png-76a1dc0b9dc80d0fd7db5447a8b1471e.ctex"]
+source_file="res://assets/holo_council/walking/sana_walk.png"
+dest_files=["res://.godot/imported/sana_walk.png-35e3ff6863fdd651680c0dbd7bd42323.ctex"]
 
 [params]
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kroniic Time"
-run/main_scene="uid://dnwu6corgro75"
+run/main_scene="uid://duxkkhbbetvq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://b6u43hussv1vs"
 
@@ -29,7 +29,6 @@ MusicPlayer="*res://src/autoloads/music_player.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/size/always_on_top=true
 window/stretch/mode="viewport"
 

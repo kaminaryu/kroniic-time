@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj46vm11cb22a"
-path="res://.godot/imported/baelz_walk.png-48c3892c9ba8e332fd8ecfd2e00743a0.ctex"
+path="res://.godot/imported/baelz_walk.png-a24786d4a627a0742fa1cedb98f8e5fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/holo_council/walking/character_walk/baelz_walk.png"
-dest_files=["res://.godot/imported/baelz_walk.png-48c3892c9ba8e332fd8ecfd2e00743a0.ctex"]
+source_file="res://assets/holo_council/walking/baelz_walk.png"
+dest_files=["res://.godot/imported/baelz_walk.png-a24786d4a627a0742fa1cedb98f8e5fe.ctex"]
 
 [params]
 

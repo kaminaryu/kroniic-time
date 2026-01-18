@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bklfbymefcn2g" path="res://src/skills/baelz/fool's_gambit.tscn" id="5_gbdl7"]
 [ext_resource type="Texture2D" uid="uid://4qsdnrm4iy6i" path="res://assets/holo_council/idle/baelz_idle.png" id="6_ea36n"]
 [ext_resource type="PackedScene" uid="uid://c3oileygt3exv" path="res://src/skills/baelz/mr_squeaks'_chaos.tscn" id="6_qopvq"]
-[ext_resource type="Texture2D" uid="uid://bj46vm11cb22a" path="res://assets/holo_council/walking/character_walk/baelz_walk.png" id="8_gyav2"]
+[ext_resource type="Texture2D" uid="uid://bj46vm11cb22a" path="res://assets/holo_council/walking/baelz_walk.png" id="8_gyav2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qopvq"]
 atlas = ExtResource("6_ea36n")

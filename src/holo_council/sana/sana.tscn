@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://doiqf8bppwxde" path="res://src/skills/sana/astral_expulsion.tscn" id="5_43t81"]
 [ext_resource type="Texture2D" uid="uid://dvjaq1gn2uurx" path="res://assets/holo_council/idle/sana_idle.png" id="6_gyigx"]
 [ext_resource type="PackedScene" uid="uid://euifbcektymq" path="res://src/skills/sana/cosmic_singularity.tscn" id="6_jveqs"]
-[ext_resource type="Texture2D" uid="uid://db800yrn7pbcc" path="res://assets/holo_council/walking/character_walk/sana_walk.png" id="8_tpmo6"]
+[ext_resource type="Texture2D" uid="uid://db800yrn7pbcc" path="res://assets/holo_council/walking/sana_walk.png" id="8_tpmo6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jveqs"]
 atlas = ExtResource("6_gyigx")

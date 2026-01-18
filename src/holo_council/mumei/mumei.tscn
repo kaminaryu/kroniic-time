@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ccw3yd6w7a46e" path="res://src/skills/mumei/berries.tscn" id="5_y0fes"]
 [ext_resource type="PackedScene" uid="uid://mljc5l7m3sax" path="res://src/skills/mumei/the_forgotten_history.tscn" id="6_wcfgn"]
 [ext_resource type="Texture2D" uid="uid://cts3kchig5bny" path="res://assets/holo_council/idle/mumei_idle.png" id="7_xeb4d"]
-[ext_resource type="Texture2D" uid="uid://dyrs5l606f8e6" path="res://assets/holo_council/walking/character_walk/mumei_walk.png" id="8_cqqx2"]
+[ext_resource type="Texture2D" uid="uid://dyrs5l606f8e6" path="res://assets/holo_council/walking/mumei_walk.png" id="8_cqqx2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqqx2"]
 atlas = ExtResource("7_xeb4d")
