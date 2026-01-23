@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ea61ue7k46cf"]
+
+[ext_resource type="Script" uid="uid://b1m45ywdp6lrk" path="res://src/refactored/entities/attributes.gd" id="1_lo26l"]
+
+[node name="Attributes" type="Node2D"]
+script = ExtResource("1_lo26l")

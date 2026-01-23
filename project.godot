@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kroniic Time"
-run/main_scene="uid://duxkkhbbetvq"
+run/main_scene="uid://dpshdfsv6yuw3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://b6u43hussv1vs"
 

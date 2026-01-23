@@ -1,16 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://duxkkhbbetvq"]
+[gd_scene load_steps=6 format=3 uid="uid://duxkkhbbetvq"]
 
 [ext_resource type="PackedScene" uid="uid://c1fh8gj04me73" path="res://src/refactored/player/new_member_controller.tscn" id="1_otd03"]
 [ext_resource type="Script" uid="uid://cwdmgv80k31af" path="res://src/refactored/player/new_player.gd" id="1_v4y6a"]
+[ext_resource type="PackedScene" uid="uid://ea61ue7k46cf" path="res://src/refactored/entities/attributes.tscn" id="2_7vlwl"]
+[ext_resource type="PackedScene" uid="uid://bv7cprl7iqlbe" path="res://src/refactored/entities/taking_damage.tscn" id="4_f6tmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v486b"]
-size = Vector2(32, 32)
+size = Vector2(64, 64)
 
 [node name="NewPlayer" type="CharacterBody2D"]
 script = ExtResource("1_v4y6a")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_v486b")
+[node name="Attributes" parent="." instance=ExtResource("2_7vlwl")]
+_health = 69.0
 
 [node name="NewMemberController" parent="." instance=ExtResource("1_otd03")]
+
+[node name="PhysicalHitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_v486b")
+
+[node name="TakingDamage" parent="." instance=ExtResource("4_f6tmf")]
+HitBoxSize = Vector2(64, 64)

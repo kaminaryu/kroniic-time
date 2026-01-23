@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://batrx22d3gi3x"]
+
+[ext_resource type="Script" uid="uid://0u4nqcjf8vyl" path="res://src/refactored/temp/bullet.gd" id="1_vcutt"]
+[ext_resource type="Texture2D" uid="uid://bdtcymim34bf8" path="res://assets/weapon/bullet.png" id="2_tnl1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j720"]
+size = Vector2(8, 8)
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_vcutt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tnl1y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1j720")
+
+[node name="Lifespan" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Lifespan" to="." method="_on_lifespan_timeout"]

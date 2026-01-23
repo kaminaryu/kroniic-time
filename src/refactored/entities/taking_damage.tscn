@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv7cprl7iqlbe"]
+
+[ext_resource type="Script" uid="uid://ckqmpkqeuan8d" path="res://src/refactored/entities/taking_damage.gd" id="1_ea8ee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti48c"]
+size = Vector2(0, 0)
+
+[node name="TakingDamage" type="Area2D"]
+script = ExtResource("1_ea8ee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ti48c")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

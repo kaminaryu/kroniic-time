@@ -284,7 +284,6 @@ max_value = 4.0
 value = 3.0
 
 [node name="Baelz" type="Node2D" parent="."]
-position = Vector2(220, 120)
 
 [node name="Idle" type="AnimatedSprite2D" parent="Baelz"]
 texture_filter = 1
@@ -301,7 +300,6 @@ frame_progress = 0.337841
 
 [node name="Fauna" type="Node2D" parent="."]
 visible = false
-position = Vector2(220, 120)
 
 [node name="Idle" type="AnimatedSprite2D" parent="Fauna"]
 texture_filter = 1
@@ -316,7 +314,6 @@ autoplay = "default"
 
 [node name="Mumei" type="Node2D" parent="."]
 visible = false
-position = Vector2(220, 120)
 
 [node name="Idle" type="AnimatedSprite2D" parent="Mumei"]
 texture_filter = 1
@@ -331,7 +328,6 @@ autoplay = "default"
 
 [node name="Sana" type="Node2D" parent="."]
 visible = false
-position = Vector2(220, 120)
 
 [node name="Idle" type="AnimatedSprite2D" parent="Sana"]
 texture_filter = 1

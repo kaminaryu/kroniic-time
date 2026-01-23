@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpshdfsv6yuw3"]
+[gd_scene load_steps=3 format=3 uid="uid://dpshdfsv6yuw3"]
 
-[ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="1_rmi33"]
+[ext_resource type="PackedScene" uid="uid://duxkkhbbetvq" path="res://src/refactored/player/new_player.tscn" id="1_rmi33"]
+[ext_resource type="PackedScene" uid="uid://c5s5idpmje2c2" path="res://src/refactored/temp/shooter.tscn" id="2_ka7r1"]
 
 [node name="testingGround" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_rmi33")]
+[node name="NewPlayer" parent="." instance=ExtResource("1_rmi33")]
+
+[node name="Shooter" parent="." instance=ExtResource("2_ka7r1")]
