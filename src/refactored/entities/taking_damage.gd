@@ -19,4 +19,7 @@ func inflict_damage(damage) -> void :
 func _on_area_entered(area: Area2D) -> void:
     if (area.has_method("get_damage")) :
         var damage = area.get_damage()
-        inflict_damage(damage)        
+        inflict_damage(damage)
+    
+    if (area.has_method("has_hit_smth")) :
+        area.has_hit_smth()

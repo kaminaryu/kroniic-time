@@ -15,6 +15,8 @@ func set_damage(dmg: float) -> void :
 func get_damage() -> int :
     return _damage
     
+func has_hit_smth() -> void :
+    queue_free()
 
 func _on_lifespan_timeout() -> void:
     queue_free()
