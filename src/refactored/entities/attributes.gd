@@ -2,6 +2,7 @@ extends Node2D
 class_name EntityAttributes
 
 @export var _health: float
+@export var _speed: float
 
 func take_damage(damage: int) -> void :
     _health -= damage
@@ -9,4 +10,7 @@ func take_damage(damage: int) -> void :
 
 func get_health() -> float :
     return _health
+    
+func get_speed() -> float :
+    return _speed
     

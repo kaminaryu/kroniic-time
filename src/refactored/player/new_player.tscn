@@ -13,12 +13,14 @@ script = ExtResource("1_v4y6a")
 
 [node name="Attributes" parent="." instance=ExtResource("2_7vlwl")]
 _health = 69.0
+_speed = 20000.0
 
 [node name="NewMemberController" parent="." instance=ExtResource("1_otd03")]
 
 [node name="PhysicalHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_v486b")
+debug_color = Color(0.88593, 0.000297256, 0.806317, 0.42)
 
 [node name="TakingDamage" parent="." instance=ExtResource("4_f6tmf")]
 HitBoxSize = Vector2(64, 64)

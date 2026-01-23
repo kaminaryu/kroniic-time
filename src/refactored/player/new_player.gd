@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-const SPEED = 20000
-
 var is_idle: bool = true
 
 func _physics_process(delta: float) -> void:
@@ -24,8 +22,8 @@ func _physics_process(delta: float) -> void:
     if move_dir.length() > 0 :
         move_dir = move_dir.normalized()
         
-    
-    velocity = move_dir * SPEED * delta
+    var speed = $Attributes.get_speed()
+    velocity = move_dir * speed * delta
     move_and_slide()
 
 
