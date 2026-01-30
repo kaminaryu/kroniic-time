@@ -1,7 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cxxmqsv7v5p5h"]
 
 [ext_resource type="PackedScene" uid="uid://btledwjve2mc5" path="res://src/dungeons/dungeon_generator.tscn" id="1_2lg1k"]
-[ext_resource type="PackedScene" uid="uid://brhygsm2kf264" path="res://src/player/player.tscn" id="2_5lsyw"]
 [ext_resource type="PackedScene" uid="uid://duryiepi65eh1" path="res://src/UI/gameplay.tscn" id="3_kokaf"]
 [ext_resource type="PackedScene" uid="uid://cy5vvcij55mvp" path="res://src/UI/transition.tscn" id="4_5lsyw"]
 [ext_resource type="PackedScene" uid="uid://b70extb05pjm0" path="res://src/spawners/slime_spawner.tscn" id="4_lp058"]
@@ -11,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ckwwikqmiv8jg" path="res://src/spawners/big_spawner.tscn" id="6_p1ia5"]
 [ext_resource type="PackedScene" uid="uid://dnrj02npdabpo" path="res://src/level_manager.tscn" id="7_kbdt0"]
 [ext_resource type="PackedScene" uid="uid://bdiaomb4hinqw" path="res://src/UI/enemy_pointer_manager.tscn" id="10_lp058"]
+[ext_resource type="PackedScene" uid="uid://duxkkhbbetvq" path="res://src/refactored/player/new_player.tscn" id="11_24j03"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p1ia5"]
 shader = ExtResource("6_24j03")
@@ -27,9 +27,9 @@ darty_spawner = NodePath("../Darty Spawner")
 giant_spawner = NodePath("../Big Spawner")
 level_manager = NodePath("../Level Manager")
 
-[node name="Player" parent="." instance=ExtResource("2_5lsyw")]
-position = Vector2(398, 243)
-collision_mask = 3
+[node name="Player" parent="." instance=ExtResource("11_24j03")]
+
+[node name="^ this is the new ver" type="Node2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
 

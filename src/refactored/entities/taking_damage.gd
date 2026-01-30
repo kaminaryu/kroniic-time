@@ -11,6 +11,7 @@ func _ready() -> void :
         if (sibling is EntityAttributes) :
             entity_attributes = sibling
 
+
 func inflict_damage(damage) -> void :
     entity_attributes.take_damage(damage)
     var health: float = entity_attributes.get_health()

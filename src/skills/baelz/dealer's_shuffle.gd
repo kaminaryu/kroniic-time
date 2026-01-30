@@ -12,14 +12,13 @@ func _ready() -> void :
 
 
 func _input(event: InputEvent) -> void :
-    if (event is not InputEventMouseButton) :
-        return
+    if (event.is_action_pressed("basic_attack")) :
+        is_pressing = true
         
-    if (event.button_index == MOUSE_BUTTON_LEFT) :
-        is_pressing = event.pressed
-        $AudioStreamPlayer2D.playing = true
-            
-    
+    if (event.is_action_released("basic_attack")) :
+        is_pressing = false
+
+
 func _process(delta: float) -> void :
     if (is_pressing and not cooling_down) :
         var mouse_pos := get_global_mouse_position()

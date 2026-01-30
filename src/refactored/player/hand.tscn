@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqwij67tj0qda"]
+
+[ext_resource type="Texture2D" uid="uid://bsyo8u48khuib" path="res://assets/temporary/hand.png" id="1_704a2"]
+[ext_resource type="Script" uid="uid://bn77a8qebqdiv" path="res://src/refactored/player/hand.gd" id="1_dklye"]
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_dklye")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.160784)
+rotation = 1.5708
+scale = Vector2(0.0292969, 0.0292969)
+texture = ExtResource("1_704a2")

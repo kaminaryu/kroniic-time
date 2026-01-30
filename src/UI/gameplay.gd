@@ -1,7 +1,7 @@
 extends Control
 
 func _process(delta: float) -> void:
-    if (SquadHandler.selected_member == null) :
+    if (SquadHandler.get_member() == null) :
         return
         
     update_time()
@@ -15,7 +15,7 @@ func update_time() -> void :
     $KroniiBar/TextureProgressBar.value = Kronii.time_left
 
 func update_ultbar() -> void :
-    var current_member: String = SquadHandler.selected_member
+    var current_member: String = SquadHandler.get_member()
     var value: int = SkillsStatisticHandler.ultimate_energy[current_member]["Current"]
     var max_value: int = SkillsStatisticHandler.ultimate_energy[current_member]["Max"]
     
@@ -41,7 +41,7 @@ func update_squad_circles() -> void :
 var prev_member: String = "Hi"
 func update_skill_cooldown() -> void :
     var skill := 0
-    var member: String = SquadHandler.selected_member
+    var member: String = SquadHandler.get_member()  
     
     if (member != prev_member) :
         $SkillCircle/Baelz.visible = false

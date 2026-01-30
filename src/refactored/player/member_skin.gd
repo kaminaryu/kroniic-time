@@ -1,21 +1,22 @@
 extends Node2D
 
 func _process(delta: float) -> void :
-    var choice: int = $CanvasLayer/MarginContainer/MarginContainer/VSlider.value
+    #var choice: int = $CanvasLayer/MarginContainer/MarginContainer/VSlider.value
+    var selected_member: String = SquadHandler.get_member()
     var character: Node
     
     $Baelz.visible = false
     $Fauna.visible = false
     $Mumei.visible = false
-    $Sana.visible = false
+    $Sana.visible  = false
     
-    if (choice == 1) :
+    if (selected_member == "Baelz") :
         character = $Baelz
-    elif (choice == 2) :
+    elif (selected_member == "Fauna") :
         character = $Fauna
-    elif (choice == 3) :
+    elif (selected_member == "Mumei") :
         character = $Mumei
-    elif (choice == 4) :
+    elif (selected_member == "Sana") :
         character = $Sana
 
     var is_idle = get_parent().get_idle_status()

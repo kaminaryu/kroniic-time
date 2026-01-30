@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn6qil11gaeoe"]
+
+[ext_resource type="Script" uid="uid://j3xeixeoswuu" path="res://src/refactored/player/new_skills_handler.gd" id="1_1j8px"]
+[ext_resource type="PackedScene" uid="uid://1ou4k7ohstj4" path="res://src/skills/baelz/dealer's_shuffle.tscn" id="2_8y23r"]
+[ext_resource type="PackedScene" uid="uid://bklfbymefcn2g" path="res://src/skills/baelz/fool's_gambit.tscn" id="3_ff3md"]
+[ext_resource type="PackedScene" uid="uid://c3oileygt3exv" path="res://src/skills/baelz/mr_squeaks'_chaos.tscn" id="4_vmrgu"]
+
+[node name="NewSkillsHandler" type="Node2D"]
+script = ExtResource("1_1j8px")
+
+[node name="Baelz" type="Node2D" parent="."]
+
+[node name="Basic" type="Node2D" parent="Baelz"]
+
+[node name="Dealer\'s Shuffle" parent="Baelz/Basic" instance=ExtResource("2_8y23r")]
+
+[node name="Skill" type="Node2D" parent="Baelz"]
+
+[node name="Fool\'s Gambit" parent="Baelz/Skill" instance=ExtResource("3_ff3md")]
+
+[node name="Ultimate" type="Node2D" parent="Baelz"]
+
+[node name="Mr Squeaks\' Chaos" parent="Baelz/Ultimate" instance=ExtResource("4_vmrgu")]
+
+[node name="Fauna" type="Node2D" parent="."]
+
+[node name="Basic" type="Node2D" parent="Fauna"]
+
+[node name="Skill" type="Node2D" parent="Fauna"]
+
+[node name="Ultimate" type="Node2D" parent="Fauna"]
+
+[node name="Mumei" type="Node2D" parent="."]
+
+[node name="Basic" type="Node2D" parent="Mumei"]
+
+[node name="Skill" type="Node2D" parent="Mumei"]
+
+[node name="Ultimate" type="Node2D" parent="Mumei"]
+
+[node name="Sana" type="Node2D" parent="."]
+
+[node name="Basic" type="Node2D" parent="Sana"]
+
+[node name="Skill" type="Node2D" parent="Sana"]
+
+[node name="Ultimate" type="Node2D" parent="Sana"]

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var label = $"../Multiplier"
+@onready var label_scn: PackedScene = preload("res://src/skills/baelz/d_20_label.tscn")
 
 func _ready() -> void :
     randomize()
@@ -14,7 +14,9 @@ func roll_d10() -> void :
         #6-20 : Buff
         var dice = randi_range(1, 20)
         
+        var label: Label = label_scn.instantiate()
         label.text = "Dice20: " + str(dice)
+        get_tree().root.add_child(label)
         
         if (dice < 6) :
             PlayerAttributes.change_attribute("Speed", 1 - (0.1 * (5 - dice)), 5)
@@ -25,8 +27,3 @@ func roll_d10() -> void :
             
         
         $Duration.start()
-
-func _on_duration_timeout() -> void:
-    label.text = ""
-    #PlayerAttributes.speed_multiplier = 1.0
-    #PlayerAttributes.damage_multiplier = 1.0

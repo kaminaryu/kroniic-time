@@ -65,7 +65,7 @@ func _input(event: InputEvent) -> void :
     if (event.is_action_pressed("skill1")) :
         var member: String = get_parent().name
         var skill := 0
-        if (SkillsStatisticHandler.is_skill_avaiable(member, skill)) :
+        if (SkillsStatisticHandler.is_skill_avaiable(member)) :
             skill_1.run()
         else :
             print(member, " skill ", skill, " unavailable")
@@ -84,7 +84,6 @@ func _input(event: InputEvent) -> void :
         else :
             print("Ultimate ", member, " unavailable")            
         
-
 
 func _on_spawn_delay_timeout() -> void:
     spawn_delay = false

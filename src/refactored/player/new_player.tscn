@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://duxkkhbbetvq"]
+[gd_scene load_steps=8 format=3 uid="uid://duxkkhbbetvq"]
 
-[ext_resource type="PackedScene" uid="uid://c1fh8gj04me73" path="res://src/refactored/player/new_member_controller.tscn" id="1_otd03"]
 [ext_resource type="Script" uid="uid://cwdmgv80k31af" path="res://src/refactored/player/new_player.gd" id="1_v4y6a"]
 [ext_resource type="PackedScene" uid="uid://ea61ue7k46cf" path="res://src/refactored/entities/attributes.tscn" id="2_7vlwl"]
 [ext_resource type="PackedScene" uid="uid://bv7cprl7iqlbe" path="res://src/refactored/entities/taking_damage.tscn" id="4_f6tmf"]
+[ext_resource type="PackedScene" uid="uid://c1fh8gj04me73" path="res://src/refactored/player/member_skin.tscn" id="5_6j6si"]
+[ext_resource type="PackedScene" uid="uid://cn6qil11gaeoe" path="res://src/refactored/player/new_skills_handler.tscn" id="5_f6tmf"]
+[ext_resource type="PackedScene" uid="uid://dqwij67tj0qda" path="res://src/refactored/player/hand.tscn" id="6_6j6si"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v486b"]
 size = Vector2(64, 64)
@@ -15,8 +17,6 @@ script = ExtResource("1_v4y6a")
 _health = 69.0
 _speed = 20000.0
 
-[node name="NewMemberController" parent="." instance=ExtResource("1_otd03")]
-
 [node name="PhysicalHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_v486b")
@@ -24,3 +24,12 @@ debug_color = Color(0.88593, 0.000297256, 0.806317, 0.42)
 
 [node name="TakingDamage" parent="." instance=ExtResource("4_f6tmf")]
 HitBoxSize = Vector2(64, 64)
+
+[node name="MemberSkin" parent="." instance=ExtResource("5_6j6si")]
+
+[node name="Hand" parent="." instance=ExtResource("6_6j6si")]
+
+[node name="NewSkillsHandler" parent="." instance=ExtResource("5_f6tmf")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.25, 1.25)

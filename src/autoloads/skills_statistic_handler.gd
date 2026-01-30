@@ -21,7 +21,7 @@ var skills_is_active: Dictionary[String, Array] = {
 
 var ultimate_energy: Dictionary[String, Dictionary] = {
     "Baelz": {
-        "Current": 0,
+        "Current": 50,
         "Max": 50
     },
     "Fauna": {
@@ -48,7 +48,8 @@ var timer_running: Dictionary = {
 
 
 
-func is_skill_avaiable(member: String, skill: int) -> bool:
+func is_skill_avaiable(member: String) -> bool:
+    var skill = 0
     print(member, " is running skill ", skill)
     if (not skills_is_active[member][skill]) :
         return false
